@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using api.Data.Repository.PackageCategorias;
+using api.Model.PackageCategorias;
+
+namespace api.Controllers.PackgeCategoria
+{
+    [Produces("application/json")]
+    [Route("api/Categoria")]
+    public class CategoriaController:Controller
+    {
+        CategoriaRepository repo;
+        //GET api/Categoria
+        [HttpGet]
+
+        public IEnumerable<Categoria>Get()
+        {
+            repo=new CategoriaRepository();
+            return repo.getAll();
+        }
+
+        // GET: api/Categoria/5
+        [HttpGet("{id}")]
+        public Categoria Get(int id)
+        {
+            repo = new CategoriaRepository();
+
+            return repo.getById(id);
+        }
+    }
+}

@@ -1,0 +1,155 @@
+﻿using api.Model.PackgeEndereco;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
+
+namespace api.Data.Repository.PackgeEndereco
+{
+ 
+    public class EnderecoRepository : Db<Endereco>, IRepository<Endereco>
+    {
+        
+        //api/endereco
+        [HttpGet]
+        public List<Endereco> getAll(int id = 0)
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Endereco> listaEndereco = new List<Endereco>();
+
+            sql.Append("SELECT En.Id, En.Descricao, En.Bairro, ");
+            sql.Append(" C.Id as IdCidade, C.Descricao as DescCidade,");
+            sql.Append(" E.Id as EstadoId, E.Descricao as DescEstado, E.Sigla,");
+            sql.Append(" P.Id as PaisId, P.Descricao DescPais");
+            sql.Append(" FROM Endereco En");
+            sql.Append(" INNER JOIN Cidade C ON En.Cidade = C.Id");
+            sql.Append(" INNER JOIN Estado E ON C.Estado = E.Id");
+            sql.Append(" INNER JOIN Pais P ON E.Pais = P.Id");
+            if (id != 0 )
+            {
+                sql.Append(" WHERE En.Id =" + id);
+            }
+
+            SqlDataReader reader = execute(sql.ToString());
+
+            while (reader.Read())
+            {
+                Cidade cidade = new Cidade();
+                cidade.id = Convert.ToInt32(reader["IdCidade"]);
+                cidade.descricao = reader["DescCidade"].ToString();
+
+                Pais pais = new Pais();
+                pais.Id = Convert.ToInt32(reader["PaisId"]);
+                pais.descricao = reader["DescPais"].ToString();
+
+                Estado estado = new Estado();
+                estado.Id = Convert.ToInt32(reader["EstadoId"]);
+                estado.descricao = reader["DescEstado"].ToString();
+                estado.sigla = reader["Sigla"].ToString();
+
+                estado.pais = pais;
+
+                cidade.estado = estado;
+
+                Endereco endereco = new Endereco();
+                endereco.Id = Convert.ToInt32(reader["Id"]);
+                endereco.descricao = reader["Descricao"].ToString();
+                endereco.bairro = reader["Bairro"].ToString();
+                endereco.cidade = cidade;
+
+                listaEndereco.Add(endereco);
+            }
+
+            return listaEndereco;
+
+        }
+
+        //api/endereco/getbyEndereco
+        [HttpGet("getbyEndereco")]
+        public new Endereco getById(int id)
+        {
+            StringBuilder sql = new StringBuilder();
+            Endereco endereco = new Endereco();
+
+            sql.Append("SELECT En.Id, En.Descricao, En.Bairro, ");
+            sql.Append(" C.Id as IdCidade, C.Descricao as DescCidade,");
+            sql.Append(" E.Id as EstadoId, E.Descricao as DescEstado, E.Sigla,");
+            sql.Append(" P.Id as PaisId, P.Descricao DescPais");
+            sql.Append(" FROM Endereco En");
+            sql.Append(" INNER JOIN Cidade C ON En.Cidade = C.Id");
+            sql.Append(" INNER JOIN Estado E ON C.Estado = E.Id");
+            sql.Append(" INNER JOIN Pais P ON E.Pais = P.Id");
+            sql.Append(" WHERE En.Id =" + id);
+
+            SqlDataReader reader = execute(sql.ToString());
+
+            if (reader.Read())
+            {
+                Cidade cidade = new Cidade();
+                cidade.id = Convert.ToInt32(reader["IdCidade"]);
+                cidade.descricao = reader["DescCidade"].ToString();
+
+                Pais pais = new Pais();
+                pais.Id = Convert.ToInt32(reader["PaisId"]);
+                pais.descricao = reader["DescPais"].ToString();
+
+                Estado estado = new Estado();
+                estado.Id = Convert.ToInt32(reader["EstadoId"]);
+                estado.descricao = reader["DescEstado"].ToString();
+                estado.sigla = reader["Sigla"].ToString();
+
+                estado.pais = pais;
+
+                cidade.estado = estado;
+
+                endereco.Id = Convert.ToInt32(reader["Id"]);
+                endereco.descricao = reader["Descricao"].ToString();
+                endereco.bairro = reader["Bairro"].ToString();
+                endereco.cidade = cidade;
+            }
+
+            return endereco;
+        }
+        //api/endereco/postEndereco
+        [HttpPost]
+        public new void insert(Endereco entity)
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("INSERT INTO Endereco");
+            sql.Append(" (Descricao, Bairro)");
+            sql.Append(" VALUES (");
+            sql.Append("'" + entity.descricao + "',");
+            sql.Append(entity.bairro);
+            sql.Append(")");
+
+            executeNonQuery(sql.ToString());
+        }
+
+          //api/endereco/putEndereco
+        [HttpPut]
+
+        public new void update(int id, Endereco entity)
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE Endereco");
+            sql.Append(" SET Descricao = '" + entity.descricao + "',");
+            sql.Append(" SET Bairro = '" + entity.bairro + "'");
+            sql.Append(" WHERE Id =" + id);
+
+            executeNonQuery(sql.ToString());
+        }
+
+        public new void delete(int id)
+        {
+            base.delete(id);
+        }
+    }
+}
