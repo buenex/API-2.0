@@ -41,7 +41,7 @@ namespace api.Controllers.Categorias
         }
         
         // PUT: api/ArtigoUsuario/5
-        [HttpPut("{attribute9}")]
+        [HttpPut("{id}")]
         public void Put(int id, [FromBody]api.Model.PackageCategorias.ArtigoUsuario value)
         {
             repo = new ArtigoUsuarioRepository();
@@ -50,7 +50,7 @@ namespace api.Controllers.Categorias
         }
         
         // DELETE: api/ArtigoUsuario/5
-        [HttpDelete("{attribute9}")]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             repo = new ArtigoUsuarioRepository();

@@ -12,83 +12,84 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackageCategorias
 {
-    [Route("api/ArtigoUsuario")]
+    
     public class ArtigoUsuarioRepository:Db<ArtigoUsuario>,IRepository<ArtigoUsuario>
     {
-        //alter
+       
                
          public new void delete(int id)
         {
             base.delete(id);
         }
 
-        //api/ArtigoUsuario
-        [HttpGet] 
+        
         public new List<ArtigoUsuario> getAll()
         {
             StringBuilder sql = new StringBuilder();
             List<ArtigoUsuario> listaArtigoUsuario = new List<ArtigoUsuario>();
 
-            sql.Append(" SELECT C.Id,C.descricao,Artigo.titulo as ATitulo,Artigo.texto as ATexto ");
-            sql.Append(" ,ArtigoUsuario.dataPublicacao as AUDataPublicacao ");
+            sql.Append("SELECT C.Id,C.descricao,A.titulo as ATitulo,A.texto as ATexto,AU.dataPublicacao as AUDataPublicacao ,AU.Id as AUId");
             sql.Append(" FROM Categoria as C ");
-            sql.Append(" INNER JOIN Artigo A ON C.Id = A.Id ");
-            sql.Append(" INNER JOIN ArtigoUsuario AU ON A.Id=C.Id ");
+            sql.Append(" INNER JOIN Artigo A ON A.Id = C.Id ");
+            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.Id=A.Id ");
 
             SqlDataReader reader = execute(sql.ToString());
 
-             if (reader.Read())
+             while (reader.Read())
             {
-                ArtigoUsuario artigoUsauario = new ArtigoUsuario ();
-                artigoUsauario.dataPublicacao = Convert.ToDateTime(reader["AUDataPublicacao"]);
-
                 Categoria categoria = new Categoria();
-                categoria.id = Convert.ToInt32(reader["C.Id"]);
-                categoria.descricao = reader["C.descricao"].ToString();
+                categoria.id = Convert.ToInt32(reader["Id"]);
+                categoria.descricao = reader["descricao"].ToString();
 
                 Artigo artigo = new Artigo();
                 artigo.titulo = reader["ATitulo"].ToString();
                 artigo.texto = reader["ATexto"].ToString();
+                artigo.categoria = categoria;
+
+                ArtigoUsuario artigoUsauario = new ArtigoUsuario();
+                artigoUsauario.dataPublicacao = Convert.ToDateTime(reader["AUDataPublicacao"]);
+                artigoUsauario.Id = (int)reader["AUId"];
+                artigoUsauario.artigo = artigo;
+                listaArtigoUsuario.Add(artigoUsauario);
             }
 
             return listaArtigoUsuario;
             
         }
 
-        //api/ArtigoUsuario/getbyArtigoUsuario
-        [HttpGet("getbyArtigoUsuario")] 
+       
         public new ArtigoUsuario getById(int id)
         {
             StringBuilder sql = new StringBuilder();
             ArtigoUsuario artigoUsauario = new ArtigoUsuario ();
 
-            sql.Append("SELECT C.Id,C.descricao,Artigo.titulo as ATitulo,Artigo.texto as ATexto ");
-            sql.Append(",ArtigoUsuario.dataPublicacao as AUDataPublicacao");
+            sql.Append("SELECT C.Id,C.descricao,A.titulo as ATitulo,A.texto as ATexto,AU.dataPublicacao as AUDataPublicacao ,AU.Id as AUId");
             sql.Append(" FROM Categoria as C ");
-            sql.Append(" INNER JOIN Artigo A ON C.Id = A.Id");
-            sql.Append(" INNER JOIN ArtigoUsuario AU ON A.Id=C.Id");
-            sql.Append(" WHERE C.Id = " + id);
+            sql.Append(" INNER JOIN Artigo A ON A.Id = C.Id ");
+            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.Id=A.Id ");
+            sql.Append(" WHERE C.Id = "+id);
 
             SqlDataReader reader = execute(sql.ToString());
 
             if (reader.Read())
             {
-                artigoUsauario.dataPublicacao = Convert.ToDateTime(reader["AUDataPublicacao"]);
-
                 Categoria categoria = new Categoria();
-                categoria.id = Convert.ToInt32(reader["C.Id"]);
-                categoria.descricao = reader["C.descricao"].ToString();
+                categoria.id = Convert.ToInt32(reader["Id"]);
+                categoria.descricao = reader["descricao"].ToString();
 
                 Artigo artigo = new Artigo();
                 artigo.titulo = reader["ATitulo"].ToString();
                 artigo.texto = reader["ATexto"].ToString();
+                artigo.categoria = categoria;
+
+                artigoUsauario.dataPublicacao = Convert.ToDateTime(reader["AUDataPublicacao"]);
+                artigoUsauario.Id = (int)reader["AUId"];
+                artigoUsauario.artigo = artigo;
             }
 
             return artigoUsauario;
         }
 
-        //api/ArtigoUsuario/postArtigoUsuario
-        [HttpPost("postArtigoUsuario")] 
         public new ArtigoUsuario insert(ArtigoUsuario entity)
         {
           StringBuilder sql = new StringBuilder();
@@ -107,12 +108,12 @@ namespace api.Data.Repository.PackageCategorias
         }
 
         //api/ArtigoUsuario/putArtigoUsuario
-        [HttpPut("putArtigoUsuario")] 
+       
         ArtigoUsuario IRepository<ArtigoUsuario>.update(int id, ArtigoUsuario entity)
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("UPDATE ArtigoUsuario");
-            sql.Append("SET fk_Artigo = '"+ entity.artigo +"',");
+            sql.Append("SET artigo = '"+ entity.artigo +"',");
             sql.Append("SET dataPublicacao = '"+ entity.dataPublicacao +"' ");
             sql.Append("WHERE Id = "+id);
             executeNonQuery(sql.ToString());

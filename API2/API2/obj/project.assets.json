@@ -11799,11 +11799,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lab01\\Desktop\\API2\\API2\\API2.csproj",
+      "projectUniqueName": "C:\\Users\\lab01\\Documents\\GitHub\\API-2.0\\API2\\API2\\API2.csproj",
       "projectName": "API2",
-      "projectPath": "C:\\Users\\lab01\\Desktop\\API2\\API2\\API2.csproj",
+      "projectPath": "C:\\Users\\lab01\\Documents\\GitHub\\API-2.0\\API2\\API2\\API2.csproj",
       "packagesPath": "C:\\Users\\lab01\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lab01\\Desktop\\API2\\API2\\obj\\",
+      "outputPath": "C:\\Users\\lab01\\Documents\\GitHub\\API-2.0\\API2\\API2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

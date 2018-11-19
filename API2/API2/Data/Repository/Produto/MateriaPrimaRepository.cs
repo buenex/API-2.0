@@ -12,12 +12,11 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackgeProduto
 {
-    [Route("api/materiaPrima")]
+    
     public class MateriaPrimaRepository : Db<MateriaPrima>, IRepository<MateriaPrima>
     {
         //alter
-        //api/materiaPrima
-        [HttpGet]
+       
         public new List<MateriaPrima> getAll()
         {
             List<MateriaPrima>listMateriaPrima=new List<MateriaPrima>();
@@ -41,8 +40,7 @@ namespace api.Data.Repository.PackgeProduto
             return listMateriaPrima;
         }
 
-        //api/materiaPrima/getbyMateriaPrima
-        [HttpGet("getbyMateriaPrima")]
+       
         public new MateriaPrima getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -61,8 +59,7 @@ namespace api.Data.Repository.PackgeProduto
             return materiaPrima;
         }
 
-        //api/materia/getbyAlergico
-        [HttpGet("getbyAlergico")]
+      
         public List<MateriaPrima> getByAlergico(Boolean alergico)
         {
             List<MateriaPrima> materias = new List<MateriaPrima>();
@@ -92,8 +89,7 @@ namespace api.Data.Repository.PackgeProduto
             return materias;
         }
 
-        //api/materiaPrima/postMateriaPrima
-        [HttpPost("postMateriaPrima")]
+       
         public new MateriaPrima insert(MateriaPrima entity)
         {
             StringBuilder sql = new StringBuilder();
@@ -107,8 +103,7 @@ namespace api.Data.Repository.PackgeProduto
             return entity;
         }
 
-        //api/materia/putMateriaPrima
-        [HttpPut("putMateriaPrima")]
+        
         public new MateriaPrima update(int id, MateriaPrima entity)
         {
             StringBuilder sql = new StringBuilder();

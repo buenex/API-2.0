@@ -31,5 +31,14 @@ namespace api.Controllers.PackgeCategoria
 
             return repo.getById(id);
         }
+
+        // GET: api/Categoria/name/Artigo
+        [HttpGet("name/{name}")]
+        public Categoria Get(string name)
+        {
+            repo = new CategoriaRepository();
+
+            return repo.getByName(name);
+        }
     }
 }

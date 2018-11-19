@@ -14,22 +14,29 @@ namespace api.Controllers.Categorias
     public class ArtigoController
     {
          ArtigoRepository repo;
-        //GET api/ArtigoUsuario
+        //GET api/Artigo
         [HttpGet]
-
         public IEnumerable<Artigo>Get()
         {
             repo=new ArtigoRepository();
             return repo.getAll();
         }
 
-        // GET: api/ArtigoUsuario/5
+        // GET: api/Artigo/5
         [HttpGet("{id}")]
         public Artigo Get(int id)
         {
             repo = new ArtigoRepository();
 
             return repo.getById(id);
+        }
+        // GET: api/Artigo/name/Artigo
+        [HttpGet("name/{name}")]
+        public Artigo Get(string name)
+        {
+            repo = new ArtigoRepository();
+
+            return repo.getByName(name);
         }
     }
 }

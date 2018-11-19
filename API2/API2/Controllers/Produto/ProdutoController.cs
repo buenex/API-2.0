@@ -23,7 +23,6 @@ namespace api.Controllers.PackgeProduto
 
             return repo.getAll();
         }
-
         // GET: api/Produto/5
         [HttpGet("{id}")]
         public Produto Get(int id)
@@ -32,7 +31,7 @@ namespace api.Controllers.PackgeProduto
 
             return repo.getById(id);
         }
-
+        // GET: api/Produto/codBarra/codigoBarra
         [HttpGet("codBarra/{codBarra}")]
         public Produto Get(String codBarra)
         {

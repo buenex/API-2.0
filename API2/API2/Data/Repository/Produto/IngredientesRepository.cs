@@ -13,11 +13,10 @@ using System.Net.Http.Headers;
 namespace api.Data.Repository.PackgeProduto
 
 {
-    [Route("api/ingrediente")]
+  
     public class IngredientesRepository : Db<Ingredientes>, IRepository<Ingredientes>
     {  
-        //api/ingrediente
-        [HttpGet]
+       
         public new List<Ingredientes> getAll()
         {
             StringBuilder sql = new StringBuilder();
@@ -47,8 +46,8 @@ namespace api.Data.Repository.PackgeProduto
             return listaIngredientes;
         }
 
-        //api/ingrediente/getbyIngrediente
-        [HttpGet("getbyIngrediente")]
+       
+        
         public new Ingredientes getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -76,8 +75,8 @@ namespace api.Data.Repository.PackgeProduto
 
             return Ingrediente;
         }
-        //api/ingrediente/postIngrediente
-        [HttpPost("postIngrediente")]
+        
+        
         public new Ingredientes insert(Ingredientes entity)
         {
             StringBuilder sql = new StringBuilder();
@@ -95,8 +94,8 @@ namespace api.Data.Repository.PackgeProduto
             return entity;
         }
 
-        //api/ingrediente/putIngrediente
-        [HttpPut ("putIngrediente")]
+       
+        
         public new Ingredientes update(int id, Ingredientes entity)
         {
             StringBuilder sql = new StringBuilder();

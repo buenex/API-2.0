@@ -50,12 +50,29 @@ namespace api.Data.Repository.PackageCategorias
             sql.Append("WHERE Id="+id);
 
             SqlDataReader reader = execute(sql.ToString());
-
-            categoria.id = Convert.ToInt32(reader["Id"]);
+            if(reader.Read())
+            categoria.id = (int)reader["Id"];
             categoria.descricao = reader["descricao"].ToString();
 
             sql.Clear();
             return categoria; 
+        }
+
+        public new Categoria getByName(string name)
+        {
+            Categoria categoria = new Categoria();
+
+            sql.Append("SELECT Id,descricao ");
+            sql.Append("FROM Categoria ");
+            sql.Append("WHERE descricao='" + name+"'");
+
+            SqlDataReader reader = execute(sql.ToString());
+            if (reader.Read())
+                categoria.id = (int)reader["Id"];
+            categoria.descricao = reader["descricao"].ToString();
+
+            sql.Clear();
+            return categoria;
         }
 
         public new Categoria insert(Categoria entity)
