@@ -30,6 +30,14 @@ namespace api.Controllers.PackgeEndereco
             repo = new CidadeRepository();
             return repo.getById(id);
         }
+
+         // GET: api/Cidade/name/cidade
+        [HttpGet("name/{name}")]
+        public Cidade Get(string name)
+        {
+            repo = new CidadeRepository();
+            return repo.getByName(name);
+        }
         
     }
 }

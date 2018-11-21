@@ -1,0 +1,4 @@
+Endereço: GET em tudo, PUT/POST apenas em endereço
+Categorias: POST/PUT/DELETE/GET
+Pessoa: POST/PUT/DELETE/GET
+Produto: POST/PUT/DELETE/GET

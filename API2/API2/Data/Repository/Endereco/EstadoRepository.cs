@@ -46,7 +46,6 @@ namespace api.Data.Repository.PackgeEndereco
             return listaEstado;
         }
 
-        //api/estado/1
         public new Estado getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -75,6 +74,36 @@ namespace api.Data.Repository.PackgeEndereco
 
             return estado;
         }
+
+          public new Estado getByName(string name)
+        {
+            StringBuilder sql = new StringBuilder();
+            Estado estado = new Estado();
+
+            sql.Append("SELECT E.Id, E.Pais, E.Descricao, E.Sigla,");
+            sql.Append(" P.Id as PaisId, P.Descricao as PDescricao");
+            sql.Append(" FROM Estado E");
+            sql.Append(" INNER JOIN Pais P");
+            sql.Append(" ON E.Pais = P.Id");
+            sql.Append(" WHERE E.Descricao = '"+name+"'");
+
+            SqlDataReader reader = base.execute(sql.ToString());
+
+            while (reader.Read())
+            {
+                estado.Id = Convert.ToInt32(reader["Id"]);
+                estado.descricao = reader["Descricao"].ToString();
+                estado.sigla = reader["Sigla"].ToString();
+
+                Pais pais = new Pais();
+                pais.Id = Convert.ToInt32(reader["PaisId"]);
+                pais.descricao = reader["PDescricao"].ToString();
+                estado.pais = pais;
+            }
+
+            return estado;
+        }
+
 
         #region "MÉTODOS NÃO IMPLEMENTADOS"
 

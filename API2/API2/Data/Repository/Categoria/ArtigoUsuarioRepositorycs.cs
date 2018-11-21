@@ -90,6 +90,38 @@ namespace api.Data.Repository.PackageCategorias
             return artigoUsauario;
         }
 
+        public new ArtigoUsuario getByName(string name)
+        {
+            StringBuilder sql = new StringBuilder();
+            ArtigoUsuario artigoUsauario = new ArtigoUsuario ();
+
+            sql.Append("SELECT C.Id,C.descricao,A.titulo as ATitulo,A.texto as ATexto,AU.dataPublicacao as AUDataPublicacao ,AU.Id as AUId,AU.titulo as AUTitulo");
+            sql.Append(" FROM Categoria as C ");
+            sql.Append(" INNER JOIN Artigo A ON A.Id = C.Id ");
+            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.Id=A.Id ");
+            sql.Append(" WHERE A.titulo = '"+ name +"'");
+
+            SqlDataReader reader = execute(sql.ToString());
+
+            if (reader.Read())
+            {
+                Categoria categoria = new Categoria();
+                categoria.id = Convert.ToInt32(reader["Id"]);
+                categoria.descricao = reader["descricao"].ToString();
+
+                Artigo artigo = new Artigo();
+                artigo.titulo = reader["ATitulo"].ToString();
+                artigo.texto = reader["ATexto"].ToString();
+                artigo.categoria = categoria;
+
+                artigoUsauario.dataPublicacao = Convert.ToDateTime(reader["AUDataPublicacao"]);
+                artigoUsauario.Id = (int)reader["AUId"];
+                artigoUsauario.artigo = artigo;
+            }
+
+            return artigoUsauario;
+        }
+
         public new ArtigoUsuario insert(ArtigoUsuario entity)
         {
           StringBuilder sql = new StringBuilder();

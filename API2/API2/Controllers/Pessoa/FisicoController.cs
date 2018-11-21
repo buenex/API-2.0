@@ -33,6 +33,15 @@ namespace api.Controllers.PackgePessoa
             return repo.getById(id);
         }
         
+         // GET: api/Fisico/name/name
+        [HttpGet("name/{name}")]
+        public Fisico Get(string name)
+        {
+            repo = new FisicoRepository();
+
+            return repo.getByName(name);
+        }
+        
         // POST: api/Fisico
         [HttpPost]
         public void Post([FromBody]Fisico value)
@@ -46,6 +55,9 @@ namespace api.Controllers.PackgePessoa
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Fisico value)
         {
+            repo=new FisicoRepository();
+
+            repo.update(id,value);
         }
         
         // DELETE: api/ApiWithActions/5

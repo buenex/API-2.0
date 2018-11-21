@@ -29,6 +29,14 @@ namespace api.Controllers.PackgeEndereco
             repo = new EnderecoRepository();
             return repo.getById(id);
         }
+
+        // GET: api/Endereco/name/endereco
+        [HttpGet("name/{name}")]
+        public api.Model.PackgeEndereco.Endereco Get(string name )
+        {
+            repo = new EnderecoRepository();
+            return repo.getByName(name);
+        }
         
         // POST: api/Endereco
         [HttpPost]
