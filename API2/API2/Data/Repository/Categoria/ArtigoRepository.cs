@@ -107,10 +107,11 @@ namespace api.Data.Repository.PackageCategorias
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO Artigo ");
-            sql.Append(" (titulo, descricao) ");
+            sql.Append(" (titulo, descricao,categoria) ");
             sql.Append(" VALUES ('");
             sql.Append(      entity.titulo + "','");
-            sql.Append(      entity.texto + "'"); 
+            sql.Append(      entity.texto + "',");
+            sql.Append(      entity.categoria.id);
             sql.Append(")");
             executeNonQuery(sql.ToString());
 
