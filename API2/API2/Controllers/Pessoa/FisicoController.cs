@@ -47,7 +47,6 @@ namespace api.Controllers.PackgePessoa
         public void Post([FromBody]Fisico value)
         {
             repo = new FisicoRepository();
-
             repo.insert(value);
         }
         

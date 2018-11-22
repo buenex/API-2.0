@@ -109,6 +109,7 @@ namespace api.Data.Repository.PackgePessoa
 
         public new Fisico insert(Fisico entity)
         {
+           
             StringBuilder sql = new StringBuilder();
             int id;
 
