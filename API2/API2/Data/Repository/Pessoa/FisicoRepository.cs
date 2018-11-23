@@ -15,12 +15,9 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackgePessoa
 {
-    [Route ("api/fisico")]
     public class FisicoRepository : Db<Fisico>, IRepository<Fisico>
     {
 
-        //api/fisico
-        [HttpGet]
         public new List<Fisico> getAll()
         {
             StringBuilder sql = new StringBuilder();
@@ -52,8 +49,6 @@ namespace api.Data.Repository.PackgePessoa
 
             return listaFisico;
         }
-        //api/fisico/getbyFisico
-        [HttpGet("getbyFisico")]
         public new Fisico getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -83,10 +78,38 @@ namespace api.Data.Repository.PackgePessoa
             return fisico;
         }
 
-        //api/postFisico
-        [HttpPost("postFisico")]
+         public new Fisico getByName(string name)
+        {
+            StringBuilder sql = new StringBuilder();
+            Fisico fisico = new Fisico();
+
+            sql.Append("SELECT P.Id as PessoaId, P.Nome, P.Endereco,");
+            sql.Append(" F.dataNascimento, F.email, F.senha");
+            sql.Append(" FROM Fisico F");
+            sql.Append(" INNER JOIN Pessoa P ON F.Pessoa = P.Id");
+            sql.Append(" WHERE P.Nome = '" + name +"'");
+
+            SqlDataReader reader = base.execute(sql.ToString());
+
+            while (reader.Read())
+            {
+                fisico.Id = Convert.ToInt32(reader["PessoaId"]);
+                fisico.dataCadastro = (DateTime)reader["dataNascimento"];
+                fisico.email = reader["email"].ToString();
+                fisico.senha = reader["senha"].ToString();
+                fisico.nome = reader["nome"].ToString();
+
+                EnderecoRepository endRepo = new EnderecoRepository();
+
+                fisico.endereco = endRepo.getById(Convert.ToInt32(reader["endereco"]));
+            }
+
+            return fisico;
+        }
+
         public new Fisico insert(Fisico entity)
         {
+           
             StringBuilder sql = new StringBuilder();
             int id;
 
@@ -113,8 +136,6 @@ namespace api.Data.Repository.PackgePessoa
             return entity;
         }
 
-        //api/putFisico
-        [HttpPut("putFisico")]
         public Fisico update(int id, Fisico entity)
         {
             StringBuilder sql = new StringBuilder();

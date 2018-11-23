@@ -78,9 +78,8 @@ namespace api.Data.Repository.PackageCategorias
         public new Categoria insert(Categoria entity)
         {
             sql.Append("INSERT INTO Categoria ");
-            sql.Append("(Id,descricao) ");
+            sql.Append("(descricao) ");
             sql.Append("VALUES (");
-            sql.Append(     entity.id+",");
             sql.Append("'"+ entity.descricao+"'");
             sql.Append(")");
 

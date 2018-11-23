@@ -32,5 +32,14 @@ namespace api.Controllers
 
             return repo.getById(id);
         }
+
+        // GET: api/Pais/name/pais
+        [HttpGet("name/{name}")]
+        public Pais Get(string name)
+        {
+            repo = new PaisRepository();
+
+            return repo.getByName(name);
+        }
     }
 }

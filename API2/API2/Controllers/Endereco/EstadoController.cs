@@ -31,6 +31,14 @@ namespace api.Controllers.PackgeEndereco
 
             return repo.getById(id);
         }
+
+         [HttpGet("name/{name}")]
+        public Estado Get(string name)
+        {
+            repo = new EstadoRepository();
+
+            return repo.getByName(name);
+        }
        
     }
 }

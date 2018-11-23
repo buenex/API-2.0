@@ -22,8 +22,7 @@ namespace api.Data.PackgeRepository
         {
             base.delete(id);
         }
-        //api/pais
-        [HttpGet]
+
         public new List<Pais> getAll()
         {
             List<Pais>listaPais = new List<Pais>();
@@ -42,8 +41,6 @@ namespace api.Data.PackgeRepository
             return listaPais;
         }
 
-        
-        [HttpGet]
         public new Pais getById(int id)
         {
             Pais pais = new Pais();
@@ -63,13 +60,12 @@ namespace api.Data.PackgeRepository
             //return pais;
         }
 
-        [HttpGet]
         public new Pais getByName(string name)
         {
             Pais pais = new Pais();
             sql.Append("SELECT Id,descricao ");
             sql.Append("FROM Pais ");
-            sql.Append("WHERE descricao = " +name.ToString());
+            sql.Append("WHERE descricao = '" +name.ToString()+"'");
 
             SqlDataReader reader = execute(sql.ToString());
             if (reader.Read())

@@ -40,5 +40,13 @@ namespace api.Controllers.PackgeCategoria
 
             return repo.getByName(name);
         }
+
+        // POST: api/Categoria
+        [HttpPost]
+        public void Post([FromBody]Categoria name)
+        {
+            repo = new CategoriaRepository();
+            repo.insert(name);
+        }
     }
 }

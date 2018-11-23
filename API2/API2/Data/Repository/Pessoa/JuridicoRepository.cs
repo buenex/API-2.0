@@ -13,11 +13,8 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackgePessoa
 {
-    [Route("api/juridico")]
     public class JuridicoRepository : Db<Juridico>, IRepository<Juridico>
     {
-        //api/juridico
-        [HttpGet]
         public List<Juridico> getAll()
         {
             StringBuilder sql = new StringBuilder();
@@ -51,8 +48,6 @@ namespace api.Data.Repository.PackgePessoa
             //throw new NotImplementedException();
         }
 
-        //api/juridico/getbyJuridico
-        [HttpGet("getbyJuridico")]
         public Juridico getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -82,8 +77,7 @@ namespace api.Data.Repository.PackgePessoa
             return Juridico;
             //throw new NotImplementedException();
         }
-        //api/postJuridico
-        [HttpPost ("postJuridico")]
+   
         public Juridico insert(Juridico entity)
         {
             StringBuilder sql = new StringBuilder();
@@ -113,8 +107,6 @@ namespace api.Data.Repository.PackgePessoa
             //throw new NotImplementedException();
         }
         
-        //api/juridico/putJuridico
-        [HttpPut("putJuridico")]
         public Juridico update(int id, Juridico entity)
         {
              StringBuilder sql = new StringBuilder();

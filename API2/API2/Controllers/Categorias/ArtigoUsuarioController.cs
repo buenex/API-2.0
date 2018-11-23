@@ -30,6 +30,14 @@ namespace api.Controllers.Categorias
             repo = new ArtigoUsuarioRepository();
             return repo.getById(id);
         }
+
+         // GET: api/ArtigoUsuario/name/titulo
+        [HttpGet("name/{name}")]
+        public api.Model.PackageCategorias.ArtigoUsuario Get(string name)
+        {
+            repo = new ArtigoUsuarioRepository();
+            return repo.getByName(name);
+        }
         
         // POST: api/ArtigoUsuario
         [HttpPost]

@@ -40,3 +40,17 @@ C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.A
 C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorTargetAssemblyInfo.cache
 C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.dll
 C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.pdb
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.deps.json
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.runtimeconfig.json
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.runtimeconfig.dev.json
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.dll
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.pdb
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.csprojAssemblyReference.cache
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.csproj.CoreCompileInputs.cache
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorAssemblyInfo.cache
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorAssemblyInfo.cs
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.AssemblyInfoInputs.cache
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.AssemblyInfo.cs
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorTargetAssemblyInfo.cache
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.dll
+C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.pdb
