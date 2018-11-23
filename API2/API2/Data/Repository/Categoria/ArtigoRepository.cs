@@ -14,12 +14,12 @@ namespace api.Data.Repository.PackageCategorias
 {
     public class ArtigoRepository:Db<Artigo>,IRepository<Artigo>
     {
+        //GET,POST OK
         //ALTER
          public new void delete(int id)
         {
             base.delete(id);
         }
-        //ALTER
         public new List<Artigo> getAll()
         {
            StringBuilder sql = new StringBuilder();
@@ -107,8 +107,9 @@ namespace api.Data.Repository.PackageCategorias
         {
             StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO Artigo ");
-            sql.Append(" (titulo, descricao) ");
-            sql.Append(" VALUES ('");
+            sql.Append(" (categoria,titulo, texto) ");
+            sql.Append(" VALUES (");
+            sql.Append(      entity.Id + ",'");
             sql.Append(      entity.titulo + "','");
             sql.Append(      entity.texto + "'"); 
             sql.Append(")");

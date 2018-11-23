@@ -38,5 +38,13 @@ namespace api.Controllers.Categorias
 
             return repo.getByName(name);
         }
+
+        // POST: api/Artigo
+        [HttpPost]
+        public void Post([FromBody]Artigo name)
+        {
+            repo = new ArtigoRepository();
+            repo.insert(name);
+        }
     }
 }

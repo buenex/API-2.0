@@ -41,7 +41,7 @@ namespace api.Controllers.Categorias
         
         // POST: api/ArtigoUsuario
         [HttpPost]
-        public void Post([FromBody]api.Model.PackageCategorias.ArtigoUsuario value)
+        public void Post([FromBody]ArtigoUsuario value)
         {
             repo = new ArtigoUsuarioRepository();
 

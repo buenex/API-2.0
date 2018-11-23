@@ -12,7 +12,8 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackageCategorias
 {
-    
+    //GET OK
+
     public class ArtigoUsuarioRepository:Db<ArtigoUsuario>,IRepository<ArtigoUsuario>
     {
        
@@ -126,12 +127,12 @@ namespace api.Data.Repository.PackageCategorias
         {
           StringBuilder sql = new StringBuilder();
             sql.Append("INSERT INTO ArtigoUsuario ");
-            sql.Append("(Id, artigo, dataPublicacao)");
+            sql.Append("(artigo, dataPublicacao)");
             sql.Append(" VALUES (");
-            sql.Append(      entity.Id + ","); 
-            sql.Append("'" + entity.artigo + "',"); 
-            sql.Append("'" + entity.dataPublicacao + "'");
-            sql.Append(")");
+            sql.Append("'" + entity.artigo.Id + "','"); 
+            sql.Append(     String.Format("{0:dd-MM-yyyy}",entity.dataPublicacao).ToString()  );
+            sql.Append("')");
+            Console.Write(sql.ToString());
             executeNonQuery(sql.ToString());
 
             return entity;

@@ -12,6 +12,7 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackageCategorias
 {
+    //GET,POST OK
     public class CategoriaRepository:Db<Categoria>,IRepository<Categoria>
     {
          StringBuilder sql = new StringBuilder();
