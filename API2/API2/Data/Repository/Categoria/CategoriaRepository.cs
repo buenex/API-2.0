@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-//OK
+
 namespace api.Data.Repository.PackageCategorias
 {
     public class CategoriaRepository:Db<Categoria>,IRepository<Categoria>
@@ -78,9 +78,10 @@ namespace api.Data.Repository.PackageCategorias
         public new Categoria insert(Categoria entity)
         {
             sql.Append("INSERT INTO Categoria ");
-            sql.Append("(descricao) ");
+            sql.Append("(Id,descricao) ");
             sql.Append("VALUES (");
-            sql.Append("'"+ entity.descricao +"'");
+            sql.Append(     entity.id+",");
+            sql.Append("'"+ entity.descricao+"'");
             sql.Append(")");
 
             executeNonQuery(sql.ToString());

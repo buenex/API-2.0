@@ -15,11 +15,12 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackgePessoa
 {
-
+    [Route ("api/fisico")]
     public class FisicoRepository : Db<Fisico>, IRepository<Fisico>
     {
 
-  
+        //api/fisico
+        [HttpGet]
         public new List<Fisico> getAll()
         {
             StringBuilder sql = new StringBuilder();
@@ -51,7 +52,8 @@ namespace api.Data.Repository.PackgePessoa
 
             return listaFisico;
         }
-
+        //api/fisico/getbyFisico
+        [HttpGet("getbyFisico")]
         public new Fisico getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -81,7 +83,8 @@ namespace api.Data.Repository.PackgePessoa
             return fisico;
         }
 
-
+        //api/postFisico
+        [HttpPost("postFisico")]
         public new Fisico insert(Fisico entity)
         {
             StringBuilder sql = new StringBuilder();
@@ -110,7 +113,8 @@ namespace api.Data.Repository.PackgePessoa
             return entity;
         }
 
-
+        //api/putFisico
+        [HttpPut("putFisico")]
         public Fisico update(int id, Fisico entity)
         {
             StringBuilder sql = new StringBuilder();
