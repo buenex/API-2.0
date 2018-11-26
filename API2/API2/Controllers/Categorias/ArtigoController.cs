@@ -46,5 +46,14 @@ namespace api.Controllers.Categorias
             repo = new ArtigoRepository();
             repo.insert(name);
         }
+
+        // PUT: api/Artigo/1
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]api.Model.PackageCategorias.Artigo value)
+        {
+            repo = new ArtigoRepository();
+
+            repo.update(id, value);
+        }
     }
 }

@@ -10,6 +10,8 @@ using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
 
+
+//GET OK
 namespace api.Data.Repository.PackgeEndereco
 {
     public class EstadoRepository : Db<Estado>, IRepository<Estado>

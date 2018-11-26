@@ -245,7 +245,7 @@ namespace api.Data
                         }
                         if (prop.PropertyType == typeof(DateTime))
                         {
-                            sql.Append(prop.Name + " = '" + String.Format("mm/dd/yyyy", prop.GetValue(entity).ToString()) + "',");
+                            sql.Append(prop.Name + " = '" + String.Format("dd/MM/yyyy", prop.GetValue(entity).ToString()) + "',");
                         }
                         if (prop.PropertyType == typeof(Boolean))
                         {

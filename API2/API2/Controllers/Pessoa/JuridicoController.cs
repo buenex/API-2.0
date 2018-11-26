@@ -46,6 +46,10 @@ namespace api.Controllers.PackgePessoa
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Juridico value)
         {
+            repo = new JuridicoRepository();
+
+            repo.update(id, value);
+
         }
         
         // DELETE: api/ApiWithActions/5

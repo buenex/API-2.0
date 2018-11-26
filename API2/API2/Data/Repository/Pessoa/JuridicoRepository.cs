@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-
+// GET, POST, PUT
 namespace api.Data.Repository.PackgePessoa
 {
     public class JuridicoRepository : Db<Juridico>, IRepository<Juridico>
@@ -20,8 +20,8 @@ namespace api.Data.Repository.PackgePessoa
             StringBuilder sql = new StringBuilder();
             List<Juridico> listaJuridico = new List<Juridico>();
 
-            sql.Append("SELECT P.Id as PessoaId, P.Nome, P.Endereco,");
-            sql.Append(" J.dataNascimento, J.email, J.senha");
+            sql.Append("SELECT P.Id as PessoaId, P.Nome as PName, P.Endereco as PEndereco,");
+            sql.Append(" J.cnpj, J.email, J.senha,J.razaoSocial");
             sql.Append(" FROM Juridico J");
             sql.Append(" INNER JOIN Pessoa P ON J.Pessoa = P.Id");
 
@@ -35,11 +35,11 @@ namespace api.Data.Repository.PackgePessoa
                 Juridico.razaoSocial = reader["razaoSocial"].ToString();
                 Juridico.cnpj = reader["cnpj"].ToString();
                 Juridico.senha = reader["senha"].ToString();
-                Juridico.nome = reader["nome"].ToString();
+                Juridico.nome = reader["PName"].ToString();
                 
                 EnderecoRepository endRepo = new EnderecoRepository();
 
-                Juridico.endereco = endRepo.getById(Convert.ToInt32(reader["endereco"]));
+                Juridico.endereco = endRepo.getById(Convert.ToInt32(reader["PEndereco"]));
 
                 listaJuridico.Add(Juridico);
             }
@@ -54,7 +54,7 @@ namespace api.Data.Repository.PackgePessoa
             Juridico Juridico = new Juridico();
 
             sql.Append("SELECT P.Id as PessoaId, P.Nome, P.Endereco,");
-            sql.Append(" J.dataNascimento, J.email, J.senha");
+            sql.Append(" J.cnpj, J.email, J.senha, J.razaoSocial");
             sql.Append(" FROM Juridico J");
             sql.Append(" INNER JOIN Pessoa P ON J.Pessoa = P.Id");
             sql.Append(" WHERE P.Id = " + id);
@@ -81,24 +81,25 @@ namespace api.Data.Repository.PackgePessoa
         public Juridico insert(Juridico entity)
         {
             StringBuilder sql = new StringBuilder();
-            int id;
 
-            sql.Append("INSERT INTO Pessoa (nome,dataCadastro,endereco)");
+
+            sql.Append("INSERT INTO Pessoa (nome,endereco)");
             sql.Append(" VALUES (");
             sql.Append("'" + entity.nome + "',");
-            sql.Append("'" + entity.dataCadastro.ToString("MM/dd/yyyy") + "',");
-            sql.Append("'" + entity.endereco.Id + "'");
+            sql.Append(      entity.endereco.Id );
             sql.Append(")");
-            executeNonQuery(sql.ToString(), out id) ;
+            executeNonQuery(sql.ToString()) ;
 
-            entity.Id = id;
+       
 
             sql.Clear();
             sql.Append("INSERT INTO Juridico ");
-            sql.Append("(razaoSocial,cnpj, senha)");
+            sql.Append("(Pessoa,razaoSocial,cnpj, email,senha)");
             sql.Append(" VALUES (");
+            sql.Append(      entity.Id+",");
             sql.Append("'" + entity.razaoSocial + "',");
             sql.Append("'" + entity.cnpj + "',");
+            sql.Append("'" + entity.email + "',");
             sql.Append("'" + entity.senha + "'");
             sql.Append(")");
             executeNonQuery(sql.ToString());
@@ -107,25 +108,25 @@ namespace api.Data.Repository.PackgePessoa
             //throw new NotImplementedException();
         }
         
-        public Juridico update(int id, Juridico entity)
+        public new void update(int id, Juridico entity)
         {
              StringBuilder sql = new StringBuilder();
-            sql.Append("UPDATE Pessoa");
+            sql.Append("UPDATE Pessoa ");
             sql.Append("SET Nome = '"+entity.nome+"',");
-            sql.Append("SET dataCadastro = '"+entity.dataCadastro.ToString("MM/dd/yyyy")+"',");
-            sql.Append("SET endereco = '"+entity.endereco+"'");
-            sql.Append("WHERE Id = "+id);
+           // sql.Append("SET dataCadastro = '"+entity.dataCadastro.ToString("MM/dd/yyyy")+"',");
+            sql.Append(" endereco = "+entity.endereco.Id);
+            sql.Append(" WHERE Id = "+entity.Id);
             executeNonQuery(sql.ToString());
 
             sql.Clear();
 
-            sql.Append("UPDATE Juridico");
+            sql.Append("UPDATE Juridico ");
             sql.Append("SET razaoSocial = '"+ entity.razaoSocial+"',");
-            sql.Append("SET cnpj = '"+ entity.cnpj+"',");
-            sql.Append("SET senha = '"+ entity.senha+"',");
-            sql.Append("WHERE Id = "+id);
+            sql.Append("    cnpj = '"+ entity.cnpj+"',");
+            sql.Append("    email = '" + entity.email + "',");
+            sql.Append("    senha = '"+ entity.senha+"'");
+            sql.Append(" WHERE Id = "+id);
             executeNonQuery(sql.ToString());
-            return entity;
             //throw new NotImplementedException();
         }
 

@@ -14,8 +14,7 @@ namespace api.Data.Repository.PackageCategorias
 {
     public class ArtigoRepository:Db<Artigo>,IRepository<Artigo>
     {
-        //GET,POST OK
-        //ALTER
+        //GET,POST,PUT OK
          public new void delete(int id)
         {
             base.delete(id);

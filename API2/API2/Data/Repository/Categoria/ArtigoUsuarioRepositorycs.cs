@@ -12,7 +12,7 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackageCategorias
 {
-    //GET OK
+    //GET ,POST, PUT OK
 
     public class ArtigoUsuarioRepository:Db<ArtigoUsuario>,IRepository<ArtigoUsuario>
     {
@@ -31,8 +31,8 @@ namespace api.Data.Repository.PackageCategorias
 
             sql.Append("SELECT C.Id,C.descricao,A.titulo as ATitulo,A.texto as ATexto,AU.dataPublicacao as AUDataPublicacao ,AU.Id as AUId");
             sql.Append(" FROM Categoria as C ");
-            sql.Append(" INNER JOIN Artigo A ON A.Id = C.Id ");
-            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.Id=A.Id ");
+            sql.Append(" INNER JOIN Artigo A ON A.categoria = C.Id ");
+            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.artigo=A.Id ");
 
             SqlDataReader reader = execute(sql.ToString());
 
@@ -66,8 +66,8 @@ namespace api.Data.Repository.PackageCategorias
 
             sql.Append("SELECT C.Id,C.descricao,A.titulo as ATitulo,A.texto as ATexto,AU.dataPublicacao as AUDataPublicacao ,AU.Id as AUId");
             sql.Append(" FROM Categoria as C ");
-            sql.Append(" INNER JOIN Artigo A ON A.Id = C.Id ");
-            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.Id=A.Id ");
+            sql.Append(" INNER JOIN Artigo A ON A.categoria = C.Id ");
+            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.artigo=A.Id ");
             sql.Append(" WHERE C.Id = "+id);
 
             SqlDataReader reader = execute(sql.ToString());
@@ -98,8 +98,8 @@ namespace api.Data.Repository.PackageCategorias
 
             sql.Append("SELECT C.Id,C.descricao,A.titulo as ATitulo,A.texto as ATexto,AU.dataPublicacao as AUDataPublicacao ,AU.Id as AUId,AU.titulo as AUTitulo");
             sql.Append(" FROM Categoria as C ");
-            sql.Append(" INNER JOIN Artigo A ON A.Id = C.Id ");
-            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.Id=A.Id ");
+            sql.Append(" INNER JOIN Artigo A ON A.categoria = C.Id ");
+            sql.Append(" INNER JOIN ArtigoUsuario AU ON AU.artigo=A.Id ");
             sql.Append(" WHERE A.titulo = '"+ name +"'");
 
             SqlDataReader reader = execute(sql.ToString());
@@ -129,10 +129,9 @@ namespace api.Data.Repository.PackageCategorias
             sql.Append("INSERT INTO ArtigoUsuario ");
             sql.Append("(artigo, dataPublicacao)");
             sql.Append(" VALUES (");
-            sql.Append("'" + entity.artigo.Id + "','"); 
-            sql.Append(     String.Format("{0:dd-MM-yyyy}",entity.dataPublicacao).ToString()  );
+            sql.Append(entity.artigo.Id + ",'"); 
+            sql.Append(String.Format("{0:dd-MM-yyyy}",entity.dataPublicacao).ToString());
             sql.Append("')");
-            Console.Write(sql.ToString());
             executeNonQuery(sql.ToString());
 
             return entity;
@@ -140,14 +139,14 @@ namespace api.Data.Repository.PackageCategorias
         
         }
 
-        //api/ArtigoUsuario/putArtigoUsuario
        
-        ArtigoUsuario IRepository<ArtigoUsuario>.update(int id, ArtigoUsuario entity)
+        public new  ArtigoUsuario  update(int id, ArtigoUsuario entity)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("UPDATE ArtigoUsuario");
-            sql.Append("SET artigo = '"+ entity.artigo +"',");
-            sql.Append("SET dataPublicacao = '"+ entity.dataPublicacao +"' ");
+            sql.Append("UPDATE ArtigoUsuario ");
+            sql.Append("SET artigo = "+ entity.artigo.Id +",");
+            sql.Append("dataPublicacao = '");
+            sql.Append(String.Format("{0:dd-MM-yyyy}", entity.dataPublicacao).ToString() + "' ");
             sql.Append("WHERE Id = "+id);
             executeNonQuery(sql.ToString());
             return entity;

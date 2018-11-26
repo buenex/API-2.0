@@ -10,6 +10,8 @@ using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
 
+
+//GET, POST, PUT OK
 namespace api.Data.Repository.PackgeEndereco
 {
  
@@ -17,7 +19,7 @@ namespace api.Data.Repository.PackgeEndereco
     {
         
    
-        public List<Endereco> getAll(int id = 0)
+        public List<Endereco> getAll()
         {
             StringBuilder sql = new StringBuilder();
             List<Endereco> listaEndereco = new List<Endereco>();
@@ -30,10 +32,6 @@ namespace api.Data.Repository.PackgeEndereco
             sql.Append(" INNER JOIN Cidade C ON En.Cidade = C.Id");
             sql.Append(" INNER JOIN Estado E ON C.Estado = E.Id");
             sql.Append(" INNER JOIN Pais P ON E.Pais = P.Id");
-            if (id != 0 )
-            {
-                sql.Append(" WHERE En.Id =" + id);
-            }
 
             SqlDataReader reader = execute(sql.ToString());
 
@@ -165,10 +163,11 @@ namespace api.Data.Repository.PackgeEndereco
             StringBuilder sql = new StringBuilder();
 
             sql.Append("INSERT INTO Endereco");
-            sql.Append(" (Descricao, Bairro)");
+            sql.Append(" (Descricao, Bairro,Cidade)");
             sql.Append(" VALUES (");
-            sql.Append("'" + entity.descricao + "',");
-            sql.Append(entity.bairro);
+            sql.Append("'" + entity.descricao + "','");
+            sql.Append(      entity.bairro+"',");
+            sql.Append(      entity.cidade.id);
             sql.Append(")");
 
             executeNonQuery(sql.ToString());
@@ -180,7 +179,8 @@ namespace api.Data.Repository.PackgeEndereco
 
             sql.Append("UPDATE Endereco");
             sql.Append(" SET Descricao = '" + entity.descricao + "',");
-            sql.Append(" SET Bairro = '" + entity.bairro + "'");
+            sql.Append(" Bairro = '" + entity.bairro + "',");
+            sql.Append(" Cidade="+entity.cidade.id);
             sql.Append(" WHERE Id =" + id);
 
             executeNonQuery(sql.ToString());

@@ -1,4 +1,3 @@
-
 CREATE DATABASE nuRotulo
 
 
@@ -40,7 +39,18 @@ CREATE TABLE Fisico (
 	Pessoa INT,
 	dataNascimento DATETIME, 
 	email VARCHAR(200),
+	senha VARCHAR(6),
+	grupo INT
+)
+
+CREATE TABLE Juridico (
+	Id INT IDENTITY PRIMARY KEY,
+	Pessoa INT,
+	razaoSocial VARCHAR(100), 
+	cnpj VARCHAR(20),
+	email VARCHAR(200),
 	senha VARCHAR(6)
+	grupo INT
 )
 
 CREATE TABLE MateriaPrima (
@@ -72,12 +82,13 @@ CREATE TABLE Pais (
 )
 
 CREATE TABLE Categoria(
-	Id INT IDENTITY PRIMARY KEY,
+	Id INT PRIMARY KEY,
 	descricao VARCHAR(800)
 )
 
+drop table ArtigoUsuario
 CREATE TABLE Artigo(
-	Id INT IDENTITY,
+	Id INT,
 	fk_Categoria INT,
 	titulo VARCHAR(100),
 	texto VARCHAR(MAX),
@@ -87,7 +98,7 @@ CREATE TABLE Artigo(
 
 
 CREATE TABLE ArtigoUsuario(
-	Id INT IDENTITY,
+	Id INT,
 	fk_Artigo INT,
 	dataPublicacao DATETIME,
 	PRIMARY KEY (fk_Artigo),
@@ -110,22 +121,9 @@ INSERT INTO Estado VALUES(1,'Parana','PR')
 INSERT INTO Cidade VALUES(1,'Araraquara')
 INSERT INTO Cidade VALUES(2,'Curitiba')
 
-INSERT INTO Endereco VALUES('Rua Carlos Gomes , 1631','Centro',1)
-INSERT INTO Endereco VALUES('Avenida Brasil','Jd Panorama',2)
+INSERT INTO Endereco VALUES(1,'Rua Carlos Gomes , 1631')
+INSERT INTO Endereco VALUES(2,'Avenida Brasil')
 
-INSERT INTO Categoria VALUES('Receita')
-INSERT INTO Categoria VALUES('Noticia')
 
-INSERT INTO Artigo VALUES(1,'Receitas para tolerantes a lactose','texto 1')
-INSERT INTO Artigo VALUES(2,'Encontro de alergenicos','texto 2 ')
-
-INSERT INTO ArtigoUsuario VALUES(1,'10-05-2018')
-INSERT INTO ArtigoUsuario VALUES(2,'11-05-2018')
-
-INSERT INTO Pessoa VALUES('Camila silva',1)
-INSERT INTO Pessoa VALUES('Gabriel Bueno',2)
-
-INSERT INTO Fisico VALUES(1,'10-10-2000','gabrielbs98@hotmail.com','123')
-INSERT INTO Fisico VALUES(2,'11-11-2001','seila@hotmail.com','olou')
 
 select * FROM Pais

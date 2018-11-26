@@ -38,6 +38,5 @@ namespace api.Controllers.PackgeEndereco
             repo = new CidadeRepository();
             return repo.getByName(name);
         }
-        
     }
 }

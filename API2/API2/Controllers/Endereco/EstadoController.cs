@@ -39,6 +39,6 @@ namespace api.Controllers.PackgeEndereco
 
             return repo.getByName(name);
         }
-       
+
     }
 }

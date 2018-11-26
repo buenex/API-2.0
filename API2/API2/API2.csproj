@@ -5,14 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Site\css\main.css" />
-    <Content Include="Site\css\Site.css" />
-    <Content Include="Site\index.html" />
-    <Content Include="Site\js\main.js" />
-    <Content Include="Site\js\Site.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

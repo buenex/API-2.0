@@ -12,7 +12,7 @@ using System.Net;
 using System.Net.Http.Headers;
 
 
-
+//POST, PUT, OK
 namespace api.Data.Repository.PackgePessoa
 {
     public class FisicoRepository : Db<Fisico>, IRepository<Fisico>
@@ -119,14 +119,13 @@ namespace api.Data.Repository.PackgePessoa
             sql.Append("'" + entity.endereco.Id + "'");
             sql.Append(")");
             executeNonQuery(sql.ToString(), out id) ;
-
             entity.Id = id;
 
             sql.Clear();
             sql.Append("INSERT INTO Fisico ");
             sql.Append("(Pessoa, dataNascimento, email, senha)");
             sql.Append(" VALUES (");
-            sql.Append(entity.Id + ",");
+            sql.Append(      entity.Id + ",");
             sql.Append("'" + entity.dataNascimento.ToString("MM/dd/yyyy") + "',"); 
             sql.Append("'" + entity.email + "',");
             sql.Append("'" + entity.senha + "'");
@@ -139,19 +138,18 @@ namespace api.Data.Repository.PackgePessoa
         public Fisico update(int id, Fisico entity)
         {
             StringBuilder sql = new StringBuilder();
-            sql.Append("UPDATE Pessoa");
+            sql.Append("UPDATE Pessoa ");
             sql.Append("SET Nome = '"+entity.nome+"',");
-            sql.Append("SET Endereco = '"+entity.endereco.Id+"'");
+            sql.Append("    Endereco ="+entity.endereco.Id+"");
             sql.Append("WHERE Id = "+id);
             executeNonQuery(sql.ToString());
 
             sql.Clear();
 
-            sql.Append("UPDATE Fisico");
-            sql.Append("SET Pessoa = '"+ entity.nome+"',");
+            sql.Append("UPDATE Fisico ");
             sql.Append("SET email = '"+ entity.email+"',");
-            sql.Append("SET senha = '"+ entity.senha+"',");
-            sql.Append("SET dataNascimento = '"+ entity.dataNascimento.ToString("MM/dd/yyyy") +"' ");
+            sql.Append(" senha = '"+ entity.senha+"',");
+            sql.Append(" dataNascimento = '"+ entity.dataNascimento.ToString("MM/dd/yyyy") +"' ");
             sql.Append("WHERE Id = "+id);
             executeNonQuery(sql.ToString());
             return entity;
