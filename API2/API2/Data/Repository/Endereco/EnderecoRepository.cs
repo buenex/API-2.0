@@ -188,7 +188,11 @@ namespace api.Data.Repository.PackgeEndereco
 
         public new void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE Endereco ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
     }
 }

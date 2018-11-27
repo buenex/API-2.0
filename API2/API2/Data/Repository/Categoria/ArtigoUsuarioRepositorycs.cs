@@ -12,7 +12,7 @@ using System.Net.Http.Headers;
 
 namespace api.Data.Repository.PackageCategorias
 {
-    //GET ,POST, PUT OK
+    //GET ,POST, PUT DELETE OK
 
     public class ArtigoUsuarioRepository:Db<ArtigoUsuario>,IRepository<ArtigoUsuario>
     {
@@ -20,7 +20,11 @@ namespace api.Data.Repository.PackageCategorias
                
          public new void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE ArtigoUsuario ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
 
         

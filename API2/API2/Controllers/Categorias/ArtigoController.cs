@@ -55,5 +55,14 @@ namespace api.Controllers.Categorias
 
             repo.update(id, value);
         }
+
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            repo = new ArtigoRepository();
+
+            repo.delete(id);
+        }
     }
 }

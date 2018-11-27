@@ -57,5 +57,14 @@ namespace api.Controllers.PackgeCategoria
 
             repo.update(id, value);
         }
+
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            repo = new CategoriaRepository();
+
+            repo.delete(id);
+        }
     }
 }

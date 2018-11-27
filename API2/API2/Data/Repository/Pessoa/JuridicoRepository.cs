@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-// GET, POST, PUT
+// GET, POST, PUT, DELETE
 namespace api.Data.Repository.PackgePessoa
 {
     public class JuridicoRepository : Db<Juridico>, IRepository<Juridico>
@@ -132,7 +132,11 @@ namespace api.Data.Repository.PackgePessoa
 
         public void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE Juridico ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
     }
 }

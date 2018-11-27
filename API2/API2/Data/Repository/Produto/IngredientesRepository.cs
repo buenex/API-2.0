@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
+//Alter
 
 namespace api.Data.Repository.PackgeProduto
 
@@ -36,7 +37,7 @@ namespace api.Data.Repository.PackgeProduto
                 ingrediente.valorEnergetico = double.Parse(reader["ValorEnergetico"].ToString());
 
                 ProdutoRepository prodRepo = new ProdutoRepository();
-                ingrediente.produto = Convert.ToInt32(reader["Produto"]);
+                ingrediente.produto.Id = Convert.ToInt32(reader["Produto"]);
 
                 MateriaPrimaRepository matRepo = new MateriaPrimaRepository();
                 ingrediente.materiaPrima = matRepo.getById(Convert.ToInt32(reader["MateriaPrima"]));
@@ -67,7 +68,7 @@ namespace api.Data.Repository.PackgeProduto
 
                 ProdutoRepository prodRepo = new ProdutoRepository();
                 //Ingrediente.produto = prodRepo.getById(Convert.ToInt32(reader["Produto"]));
-                Ingrediente.produto = Convert.ToInt32(reader["Produto"]);
+                Ingrediente.produto.Id = Convert.ToInt32(reader["Produto"]);
 
                 MateriaPrimaRepository matRepo = new MateriaPrimaRepository();
                 Ingrediente.materiaPrima = matRepo.getById(Convert.ToInt32(reader["MateriaPrima"]));
@@ -84,7 +85,7 @@ namespace api.Data.Repository.PackgeProduto
 
             sql.Append("INSERT INTO Ingredientes (Produto, MateriaPrima, ValorEnergetico, ValorDiario)");
             sql.Append(" VALUES (");
-            sql.Append(entity.produto + ",");
+            sql.Append(entity.produto.Id + ",");
             sql.Append(entity.materiaPrima.Id + ",");
             sql.Append(entity.valorEnergetico + ",");
             sql.Append(entity.valorDiario);

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-
+//GET,PUT,POST OK
 namespace api.Data.Repository.PackgeProduto
 {
     public class ProdutoRepository : Db<Produto>, IRepository<Produto>
@@ -52,7 +52,7 @@ namespace api.Data.Repository.PackgeProduto
                     Ingredientes ingrediente = new Ingredientes();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto = Convert.ToInt32(reader2["Produto"].ToString());
+                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["ValorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["ValorEnergetico"]).ToString());
 
@@ -104,7 +104,7 @@ namespace api.Data.Repository.PackgeProduto
                     Ingredientes ingrediente = new Ingredientes();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto = Convert.ToInt32(reader2["Produto"].ToString());
+                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"]);
                     ingrediente.valorDiario = double.Parse((reader2["valorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["valorEnergetico"]).ToString());
 
@@ -155,7 +155,7 @@ namespace api.Data.Repository.PackgeProduto
                     Ingredientes ingrediente = new Ingredientes();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto = Convert.ToInt32(reader2["Produto"].ToString());
+                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["valorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["valorEnergetico"]).ToString());
 
@@ -173,17 +173,41 @@ namespace api.Data.Repository.PackgeProduto
 
         public new Produto insert(Produto entity)
         {
-            return base.insert(entity);
+            Produto produto = new Produto();
+            StringBuilder sql = new StringBuilder();
+            sql.Append("INSERT INTO Produto ");
+            sql.Append("VALUES('"+entity.codigoBarra+"','");
+            sql.Append(           entity.descricao+"',");
+            sql.Append(           entity.valorVenda.ToString()+",'");
+            sql.Append(           entity.preparo+"','");
+            sql.Append(           entity.conservacao+"')");
+            executeNonQuery(sql.ToString());
+            return produto;
         }
 
         public new Produto update(int id, Produto entity)
         {
-            return base.update(id, entity);
+            Produto produto = new Produto();
+            StringBuilder sql = new StringBuilder();
+
+            sql.Append("UPDATE Produto ");
+            sql.Append("SET codigoBarra='"+entity.codigoBarra+"',");
+            sql.Append("descricao='"+entity.descricao+"',");
+            sql.Append("valorVenda="+entity.valorVenda.ToString()+",");
+            sql.Append("preparo = '"+entity.preparo+"',");
+            sql.Append("conservacao = '"+entity.conservacao+"' ");
+            sql.Append("WHERE id = "+id);
+            executeNonQuery(sql.ToString());
+            return produto;
         }
 
         public new void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE Produto ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
     }
 }

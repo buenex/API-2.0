@@ -12,7 +12,7 @@ using System.Net;
 using System.Net.Http.Headers;
 
 
-//POST, PUT, OK
+//GET, POST, PUT, DELETE OK
 namespace api.Data.Repository.PackgePessoa
 {
     public class FisicoRepository : Db<Fisico>, IRepository<Fisico>
@@ -55,10 +55,10 @@ namespace api.Data.Repository.PackgePessoa
             Fisico fisico = new Fisico();
 
             sql.Append("SELECT P.Id as PessoaId, P.Nome, P.Endereco,");
-            sql.Append(" F.dataNascimento, F.email, F.senha");
+            sql.Append(" F.dataNascimento, F.email, F.senha,F.Id");
             sql.Append(" FROM Fisico F");
             sql.Append(" INNER JOIN Pessoa P ON F.Pessoa = P.Id");
-            sql.Append(" WHERE P.Id = " + id);
+            sql.Append(" WHERE F.Id = " + id);
 
             SqlDataReader reader = base.execute(sql.ToString());
 
@@ -158,7 +158,11 @@ namespace api.Data.Repository.PackgePessoa
 
         public new void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE Fisico ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
     }
 }

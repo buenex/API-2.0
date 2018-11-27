@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using api.Data.Repository.PackgeEndereco;
 using api.Model.PackgeEndereco;
-
+//GET, POST, PUT, DELETE OK
 namespace api.Controllers.PackgeEndereco
 {
     [Produces("application/json")]

@@ -14,10 +14,14 @@ namespace api.Data.Repository.PackageCategorias
 {
     public class ArtigoRepository:Db<Artigo>,IRepository<Artigo>
     {
-        //GET,POST,PUT OK
+        //GET,POST,PUT DELETE OK
          public new void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE Artigo ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
         public new List<Artigo> getAll()
         {
