@@ -8,8 +8,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
@@ -29,7 +27,6 @@
 </head>
 
 <body>
-
 	<!-- Top Menu / Barra de Navegação -->
 	<nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
 		<div class="container">
@@ -41,33 +38,54 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#topo">Home</a>
+						<a class="nav-link scroll-link" href="#topo"><label id="">Default</label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#services">Serviços</a>
+						<a class="nav-link scroll-link" href="#services"><label id="">Default</label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#about-us">Quem Somos</a>
+						<a class="nav-link scroll-link" href="#about-us"><label id="">Default</label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#blog">Blog</a>
+						<a class="nav-link scroll-link" href="#blog"><label id="">Default</label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#testimonials ">Parceiros</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#testimonials ">Logar
-
-						</a>
+						<a class="nav-link scroll-link" href="#testimonial "><label id="">Default</label></a>
 					</li>	
 				</ul>
+				<button onclick="mostrar('logar')">Mostrar</button>
 		</div>
-		
 	</nav>
-
-<div class="fixed center" >
-	
+<div id="logar">
+	<div class="fixed-top">
+		<div class="container">
+		<div class="form-logar">
+				<button onclick="ocultar('logar')">Ocultar</button>	
+		<form >
+			<div>
+			  <label for="exampleInputEmail1">Email:Default</label>
+			  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu Email">
+			  
+			</div>
+			<div>
+			  <label id for="exampleInputPassword1">Senha:Default</label>
+			  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+			  <a href="">Esqueci minha senha:</a>
+			</div>
+				
+			<button onclick="logar()">Logar</button>
+		  </form>
+		  <button onclick="mostrar('cadastro'),ocultar('logar')">Cadastrar</button>
+		</div>
+	</div>
+</div>		
+	</div>
+<div id="cadastro">
+<div class="fixed-top">
+	<div class="container">
+		<div class="form-cadastro">
 		<form action="/http://localhost:63569/api/juridico" method="post">
+			<button type="button" onclick="ocultar('cadastro')"></button>
 			<div>
 				<label for="Nome">Nome da Empresa:</label>
 				<input type="text" id="nome" />
@@ -77,29 +95,48 @@
 				<input type="text" id="pais" />
 			</div>
 			<div>
+				<label for="Razão">Razão Social:</label>
+				<input type="text" id="razao" />
+			</div>
+
+			<div>
 				<label for="Email">Email:</label>
 				<input type="email" id="email" />
 			</div>	
-			<div>
-					<label for="Senha">Razão Social:</label>
-					<input type="password" id="razao" />
-				</div>
-	
+			
 			<div>
 				<label for="Senha">Senha:</label>
 				<input type="password" id="senha" />
 			</div>
 			<div>
 				<label for="Pais">Pais:</label>
-				<input type="text" id="pais" />
-			</div>
+				<select>
+				  <option>Brasil</optison>
+				  <option>Estados Unidos</option>
+				  <option>Canada</option>
+				  <option>Rusia</option>
+				  <option>Japão</option>
+				</select>
+			  </div>
 			<div>
 				<label for="Estado">Estado:</label>
-				<input type="text" id="estado" />
+				<select>
+					<option><label id="">Default</label></option>
+					<option><label id="">Default</label></option>
+					<option><label id="">Default</label></option>
+					<option><label id="">Default</label></option>
+					<option><label id="">Default</label></option>
+				  </select>
 			</div>
 			<div>
 				<label for="Cidade">Cidade:</label>
-				<input type="text" id="cidade" />
+				<select>
+						<option><label id="">Default</label></option>
+						<option><label id="">Default</label></option>
+						<option><label id="">Default</label></option>
+						<option><label id="">Default</label></option>
+						<option><label id="">Default</label></option>
+				  </select>
 			</div>
 			<div>
 				<label for="endereco">Endereço</label>
@@ -109,7 +146,11 @@
 			<input type="submit" id="submit-button" value="Cadastrar" />
 			<input type="button" value="Cadastrar" onclick="send()">
 		</form>
+	</div>
 </div>
+</div>
+</div>
+
 	<!-- Top content / Conteudo Home-->
 	<div class="top-content" >
 			
@@ -502,6 +543,7 @@
 	<script src="assets/js/waypoints.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
 	<script src="assets/js/Acesso.js"></script>
+	<script src="./assets/js/main.js"></script>
 	
 </body>
 
