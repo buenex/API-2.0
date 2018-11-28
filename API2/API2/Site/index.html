@@ -38,38 +38,38 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#topo"><label id="">Default</label></a>
+						<a class="nav-link" href="#topo"><label for=""></label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#services"><label id="">Default</label></a>
+						<a class="nav-link " href="#services"><label for=""></label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#about-us"><label id="">Default</label></a>
+						<a class="nav-link " href="#about-us"><label id="">Default</label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#blog"><label id="">Default</label></a>
+						<a class="nav-link" href="#blog"><label id="">Default</label></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link scroll-link" href="#testimonial "><label id="">Default</label></a>
+						<a class="nav-link " href="#testimonial "><label id="">Default</label></a>
 					</li>	
 				</ul>
 				<button onclick="mostrar('logar')">Mostrar</button>
 		</div>
 	</nav>
-<div id="logar">
-	<div class="fixed-top">
+
+	<div class="fixed-top" id="logar">
 		<div class="container">
-		<div class="form-logar">
+		<div>
 				<button onclick="ocultar('logar')">Ocultar</button>	
 		<form >
 			<div>
-			  <label for="exampleInputEmail1">Email:Default</label>
-			  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu Email">
+			  <label for="Email">Email:Default</label>
+			  <input type="email" class="form-control" id="emaillogar" aria-describedby="emailHelp" placeholder="Digite seu Email">
 			  
 			</div>
 			<div>
-			  <label id for="exampleInputPassword1">Senha:Default</label>
-			  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha">
+			  <label id for="Senha">Senha:Default</label>
+			  <input type="password" class="form-control" id="senhalogar" placeholder="Digite sua senha">
 			  <a href="">Esqueci minha senha:</a>
 			</div>
 				
@@ -80,10 +80,10 @@
 	</div>
 </div>		
 	</div>
-<div id="cadastro">
-<div class="fixed-top">
+
+<div class="fixed-top" id="cadastro" >
 	<div class="container">
-		<div class="form-cadastro">
+		<div >
 		<form action="/http://localhost:63569/api/juridico" method="post">
 			<button type="button" onclick="ocultar('cadastro')"></button>
 			<div>

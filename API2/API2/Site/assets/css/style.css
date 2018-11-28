@@ -10,12 +10,8 @@ body
 }
 #cadastro
 {
-
-	display: none;
-}
-#logar
-{
-	margin: 0 auto;
+	
+	margin: 50px auto;
 	width: 350px;
     padding: 1em;
     border: 3px solid black;
@@ -23,12 +19,17 @@ body
     background-color: #333;
 	display: none;
 }
-.center
+#logar
 {
-	margin-left: 100px;
-
+	
+	margin: 100px auto;
+	width: 350px;
+    padding: 1em;
+    border: 3px solid black;
+    border-radius: 1em;
+    background-color: #333;
+	display: none;
 }
-
 strong { font-weight: 600; }
 
 a, a:hover, a:focus { color: #9b59b6; text-decoration: none; transition: all .3s; }
@@ -62,24 +63,6 @@ img { max-width: 100%; }
 ::-moz-selection { background: #9b59b6; color: #fff; text-shadow: none; }
 ::selection { background: #9b59b6; color: #fff; text-shadow: none; }
 
-.form-logar
- { 
-    margin: 0 auto;
-	width: 350px;
-    padding: 1em;
-    border: 3px solid black;
-    border-radius: 1em;
-    background-color: #333;
-}
-.form-cadastro
-{
-	margin: 0 auto;
-	width: 350px;
-    padding: 1em;
-    border: 3px solid black;
-    border-radius: 1em;
-    background-color: #333;
-}
 
 select
 {
@@ -87,17 +70,6 @@ select
   border-color: black;
 
 }
-label
-
- {
-	color:white;
-    width:100px;
-	text-align: left;
-	 font-size: 15px;
-	 align-content: left;	
-	
-}
-   
 input
 {
 	height: 30px;
