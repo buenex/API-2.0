@@ -50,7 +50,7 @@ namespace api.Data.Repository.PackgeProduto
                 foreach (Dictionary<String, object> reader2 in listRows2)
                 {
                     Ingredientes ingrediente = new Ingredientes();
-
+                    ingrediente.produto = produto;
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
                     ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["ValorDiario"]).ToString());
