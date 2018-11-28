@@ -8,8 +8,28 @@ body
     line-height: 30px;
     text-align: center;
 }
-
-
+#cadastro
+{
+	
+	margin: 50px auto;
+	width: 350px;
+    padding: 1em;
+    border: 3px solid black;
+    border-radius: 1em;
+    background-color: #333;
+	display: none;
+}
+#logar
+{
+	
+	margin: 100px auto;
+	width: 350px;
+    padding: 1em;
+    border: 3px solid black;
+    border-radius: 1em;
+    background-color: #333;
+	display: none;
+}
 strong { font-weight: 600; }
 
 a, a:hover, a:focus { color: #9b59b6; text-decoration: none; transition: all .3s; }
@@ -43,39 +63,20 @@ img { max-width: 100%; }
 ::-moz-selection { background: #9b59b6; color: #fff; text-shadow: none; }
 ::selection { background: #9b59b6; color: #fff; text-shadow: none; }
 
-form {
-	
-    /* Apenas para centralizar o form na página */
-    margin: 0 auto;
-	width: 600px;
-	
-    /* Para ver as bordas do formulário */
-    padding: 1em;
-    border: 3px solid black;
-    border-radius: 1em;
-    background-color: #333;
-}
-        form div + div {
-    margin-top: 1em;
-}
 
-label
+select
+{
+	
+  border-color: black;
 
- {
-    /*Para ter certeza que todas as labels tem o mesmo tamanho e estão propriamente alinhadas */
-    display: inline-block;
-    width: 300px;
-    text-align: right;
-}
-        input:focus, textarea:focus {
-    /* Dar um pouco de destaque nos elementos ativos */
-    border-color: black;
 }
 input
 {
+	height: 30px;
     border-color: black;
 }
-        textarea {
+textarea 
+{
     /* Para alinhar corretamente os campos de texto de várias linhas com sua label*/
     vertical-align: top;
 
@@ -85,27 +86,28 @@ input
     /* Para permitir aos usuários redimensionarem qualquer textarea verticalmente. Ele não funciona em todos os browsers */
     resize: vertical;
 }
-        .button {
-    /* Para posicionar os botões para a mesma posição dos campos de texto */
+.button 
+		
+{/* Para posicionar os botões para a mesma posição dos campos de texto */
     padding-left: 90px; /* mesmo tamanho que os elementos do tipo label */
-}
-button {
-    /* Esta margem extra representa aproximadamente o mesmo espaço que o espaço entre as labels e os seus campos de texto*/
-    margin-left: .5em;
-    border: none;
-    background-color: white;
-    color: black;
-    border-radius: 100%;
 }
 
 /***** General style, all sections *****/
-.fixed
+.cadastrar
 {
 	
 	z-index: 9999;
 	position: fixed;
 	
 }
+.logar
+{
+	
+	z-index: 9999;
+	position: fixed;
+	
+}
+
 .section-container {
     margin: 0 auto;
     padding-bottom: 80px;
@@ -248,7 +250,7 @@ button {
 {
 	height: 50px;
 	width: 136px;
-	background: url(../img/logo.png) left center no-repeat;
+	background: url(/assets/img/logo.png) ; 
 	border: 0;
 	text-indent: -99999px;
 }

@@ -4,14 +4,14 @@
        alert("Function")
       var person = {
           name: $("#Empresa").val(),
-          nnpj:$("#Cnpj").val(),
-         email:$("#").val(),
-         razaoSocial:$("#").val(),
-         senha:$("#").val(),
-         pais:$("#").val(),
-        estado:$("#").val(),
-         cidade:$("#").val(),
-         endereco:$("#").val()
+          cnpj:$("#Cnpj").val(),
+         email:$("#Email").val(),
+         razaoSocial:$("#Razao").val(),
+         senha:$("#Senha").val(),
+         pais:$("#Pais").val(),
+        estado:$("#Estado").val(),
+         cidade:$("#Cidade").val(),
+         endereco:$("#Endereço").val()
       }
       $('#target').html('sending..');
 

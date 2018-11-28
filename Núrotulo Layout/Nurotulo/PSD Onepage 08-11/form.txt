@@ -1,0 +1,25 @@
+
+Pessoa fisica
+
+Nome
+Data de nascimento
+Email
+senha
+pais
+estado
+cidade
+endereco
+
+
+
+Pessoa juridica
+
+nome
+razao social
+cnpj
+senha
+pais
+estado
+cidade 
+endereco
+
