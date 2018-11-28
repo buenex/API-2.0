@@ -1,53 +1,36 @@
-function showHint(str) {
-   
-    if (str.length == 0) { 
-        alert("vazio");
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else {
-        var xmlhttp = new XMLHttpRequest();
-        try{
-            
-            xmlhttp.open("GET", "http://localhost:63569/api/pais/1", true);
-            
-            alert("Passou")
-        }
-        catch
-        {
-            alert("Deu RUim");
-        }
-        try
-        {
-        xmlhttp.send();
-        alert("enviando")
-
-        }
-        catch
-        {
-
-        }
-        xmlhttp.onreadystatechange = function() 
-        {
-            alert("entrou;");
-            //&& this.status == 404
-            if (this.readyState == 4 && this.status == 200) {
-               alert("cheio  error number: "+ this.responseText.toString());
-                document.getElementById("txtHint").innerHTML = this.responseText;
-            }
-            else
-            {
-                alert("erro ok ? "+this.status.toString());
-            }
-        };
-        
-    }
-}
-function mostrar(el)
-{
+$(document).ready(function(){
+    $("a").on('click', function(event) {
   
-    document.getElementById(el).style.display ='inline'
-}
-function ocultar(el)
-{
-    document.getElementById(el).style.display ='none'
+     
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+  
+        // Store hash
+        var hash = this.hash;
+  
+     
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+     
+        
+          window.location.hash = hash;
+        });
+      } 
+    });
+  });
+
+  function topo()
+  {
+    $('html, body').animate({scrollTop:0}, 'slow'); 
+  }
+  window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
 }
