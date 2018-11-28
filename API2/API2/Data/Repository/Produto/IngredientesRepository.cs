@@ -23,8 +23,12 @@ namespace api.Data.Repository.PackgeProduto
             StringBuilder sql = new StringBuilder();
             List<Ingredientes> listaIngredientes = new List<Ingredientes>();
 
-            sql.Append("SELECT Id, Produto, MateriaPrima, ValorEnergetico, ValorDiario");
-            sql.Append(" FROM Ingredientes");
+            sql.Append("SELECT I.Id, I.Produto, I.MateriaPrima, I.ValorEnergetico, I.ValorDiario, ");
+            sql.Append("P.codigoBarra as codBarra, P.descricao as descricao, P.valorVenda as valorVenda,P.preparo as preparo,P.conservacao as conservacao,");
+            sql.Append("M.Id as MId, M.Descricao as MDescricao, M.CausaAlergia as MCausaAlergia");
+            sql.Append(" FROM Ingredientes as I ");
+            sql.Append(" INNER JOIN Produto P P.Id = I.Id ");
+            sql.Append(" INNER JOIN MateriaPrima M M.Id = P.Id");
 
             SqlDataReader reader = base.execute(sql.ToString());
 
@@ -36,11 +40,20 @@ namespace api.Data.Repository.PackgeProduto
                 ingrediente.valorDiario = double.Parse(reader["ValorDiario"].ToString());
                 ingrediente.valorEnergetico = double.Parse(reader["ValorEnergetico"].ToString());
 
-                ProdutoRepository prodRepo = new ProdutoRepository();
-                ingrediente.produto.Id = Convert.ToInt32(reader["Produto"]);
+                Produto prodRepo = new Produto();
+                prodRepo.Id = Convert.ToInt32(reader["Produto"].ToString());
+                prodRepo.codigoBarra = reader["codBarra"].ToString();
+                prodRepo.conservacao=reader["conservacao"].ToString();
+                prodRepo.descricao = reader["conservacao"].ToString();
+                prodRepo.preparo=reader["preparo"].ToString();
+                prodRepo.valorVenda= double.Parse(reader["valorVenda"].ToString());
+                ingrediente.produto=prodRepo;
 
-                MateriaPrimaRepository matRepo = new MateriaPrimaRepository();
-                ingrediente.materiaPrima = matRepo.getById(Convert.ToInt32(reader["MateriaPrima"]));
+                MateriaPrima matRepo = new MateriaPrima();
+                matRepo.Id = Convert.ToInt32(reader["MateriaPrima"]);
+                matRepo.descricao=reader["MDescricao"].ToString();
+                ingrediente.materiaPrima=matRepo;
+                
                 listaIngredientes.Add(ingrediente);
             }
 
