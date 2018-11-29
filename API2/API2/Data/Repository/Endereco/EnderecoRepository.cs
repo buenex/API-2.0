@@ -11,7 +11,7 @@ using System.Net;
 using System.Net.Http.Headers;
 
 
-//GET, POST, PUT OK
+//GET, POST, PUT, DELETE OK
 namespace api.Data.Repository.PackgeEndereco
 {
  
