@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-//GET,PUT,POST OK
+//GET, PUT, POST, DELETE OK
 namespace api.Data.Repository.PackgeProduto
 {
     public class ProdutoRepository : Db<Produto>, IRepository<Produto>
@@ -39,26 +39,25 @@ namespace api.Data.Repository.PackgeProduto
                 List<Ingredientes> ingredientes = new List<Ingredientes>();
 
                 sql.Clear();
-                sql.Append("SELECT I.Id, I.Produto, MP.Id MateriaPrima,  MP.Descricao, MP.CausaAlergia, I.ValorEnergetico, I.ValorDiario");
+                sql.Append("SELECT I.Id, I.Produto, MP.Id as MPId,  MP.Descricao as MPDescricao, MP.CausaAlergia as MPCausaAlergia, I.ValorEnergetico, I.ValorDiario");
                 sql.Append(" FROM Ingredientes I");
                 sql.Append(" LEFT JOIN MateriaPrima MP ON I.MateriaPrima = MP.Id");
                 sql.Append(" WHERE I.Produto = " + produto.Id);
 
-                //SqlDataReader reader2 = execute(sql.ToString());
                 var listRows2 = executeDataTable(sql.ToString());
 
                 foreach (Dictionary<String, object> reader2 in listRows2)
                 {
                     Ingredientes ingrediente = new Ingredientes();
-                    ingrediente.produto = produto;
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["ValorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["ValorEnergetico"]).ToString());
 
-                    MateriaPrimaRepository repoMat = new MateriaPrimaRepository();
-                    ingrediente.materiaPrima = repoMat.getById(Convert.ToInt32(reader2["MateriaPrima"].ToString()));
-
+                    MateriaPrima repoMat = new MateriaPrima();
+                    ingrediente.materiaPrima = repoMat;
+                    ingrediente.materiaPrima.Id = (int)reader2["MPId"];
+                    ingrediente.materiaPrima.descricao = reader2["MPDescricao"].ToString();
+                    ingrediente.materiaPrima.causaAlergia = (bool)reader2["MPCausaAlergia"];                   
                     ingredientes.Add(ingrediente);
                 }
 
@@ -104,7 +103,6 @@ namespace api.Data.Repository.PackgeProduto
                     Ingredientes ingrediente = new Ingredientes();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"]);
                     ingrediente.valorDiario = double.Parse((reader2["valorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["valorEnergetico"]).ToString());
 
@@ -155,7 +153,6 @@ namespace api.Data.Repository.PackgeProduto
                     Ingredientes ingrediente = new Ingredientes();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["valorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["valorEnergetico"]).ToString());
 

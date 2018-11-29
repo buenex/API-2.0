@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-//Alter
+//GET, POST, PUT, DELETE OK
 
 namespace api.Data.Repository.PackgeProduto
 
@@ -27,8 +27,8 @@ namespace api.Data.Repository.PackgeProduto
             sql.Append("P.codigoBarra as codBarra, P.descricao as descricao, P.valorVenda as valorVenda,P.preparo as preparo,P.conservacao as conservacao,");
             sql.Append("M.Id as MId, M.Descricao as MDescricao, M.CausaAlergia as MCausaAlergia");
             sql.Append(" FROM Ingredientes as I ");
-            sql.Append(" INNER JOIN Produto P P.Id = I.Id ");
-            sql.Append(" INNER JOIN MateriaPrima M M.Id = P.Id");
+            sql.Append(" INNER JOIN Produto P ON P.Id = I.Id ");
+            sql.Append(" INNER JOIN MateriaPrima M ON M.Id = P.Id");
 
             SqlDataReader reader = base.execute(sql.ToString());
 
@@ -65,29 +65,45 @@ namespace api.Data.Repository.PackgeProduto
         public new Ingredientes getById(int id)
         {
             StringBuilder sql = new StringBuilder();
-            Ingredientes Ingrediente = new Ingredientes();
+           
 
-            sql.Append("SELECT Id, Produto, MateriaPrima, ValorEnergetico, ValorDiario");
-            sql.Append(" FROM Ingredientes");
-            sql.Append(" WHERE Id = " + id);
+            sql.Append("SELECT I.Id, I.Produto, I.MateriaPrima, I.ValorEnergetico, I.ValorDiario, ");
+            sql.Append("P.codigoBarra as codBarra, P.descricao as descricao, P.valorVenda as valorVenda,P.preparo as preparo,P.conservacao as conservacao,");
+            sql.Append("M.Id as MId, M.Descricao as MDescricao, M.CausaAlergia as MCausaAlergia");
+            sql.Append(" FROM Ingredientes as I ");
+            sql.Append(" INNER JOIN Produto P ON P.Id = I.Id ");
+            sql.Append(" INNER JOIN MateriaPrima M ON M.Id = P.Id");
+            sql.Append(" WHERE I.Id="+id);
 
             SqlDataReader reader = base.execute(sql.ToString());
+            Ingredientes ingrediente = new Ingredientes();
 
             if (reader.Read())
             {
-                Ingrediente.Id = Convert.ToInt32(reader["Id"]);
-                Ingrediente.valorDiario = double.Parse(reader["ValorDiario"].ToString());
-                Ingrediente.valorEnergetico = double.Parse(reader["ValorEnergetico"].ToString());
+               
 
-                ProdutoRepository prodRepo = new ProdutoRepository();
-                //Ingrediente.produto = prodRepo.getById(Convert.ToInt32(reader["Produto"]));
-                Ingrediente.produto.Id = Convert.ToInt32(reader["Produto"]);
+                ingrediente.Id = Convert.ToInt32(reader["Id"]);
+                ingrediente.valorDiario = double.Parse(reader["ValorDiario"].ToString());
+                ingrediente.valorEnergetico = double.Parse(reader["ValorEnergetico"].ToString());
 
-                MateriaPrimaRepository matRepo = new MateriaPrimaRepository();
-                Ingrediente.materiaPrima = matRepo.getById(Convert.ToInt32(reader["MateriaPrima"]));
+                Produto prodRepo = new Produto();
+                prodRepo.Id = Convert.ToInt32(reader["Produto"].ToString());
+                prodRepo.codigoBarra = reader["codBarra"].ToString();
+                prodRepo.conservacao = reader["conservacao"].ToString();
+                prodRepo.descricao = reader["conservacao"].ToString();
+                prodRepo.preparo = reader["preparo"].ToString();
+                prodRepo.valorVenda = double.Parse(reader["valorVenda"].ToString());
+                ingrediente.produto = prodRepo;
+
+                MateriaPrima matRepo = new MateriaPrima();
+                matRepo.Id = Convert.ToInt32(reader["MateriaPrima"]);
+                matRepo.descricao = reader["MDescricao"].ToString();
+                ingrediente.materiaPrima = matRepo;
+
+                
             }
 
-            return Ingrediente;
+            return ingrediente;
         }
         
         
@@ -115,11 +131,11 @@ namespace api.Data.Repository.PackgeProduto
             StringBuilder sql = new StringBuilder();
             sql.Clear();
             sql.Append("UPDATE Ingredientes SET");
-            sql.Append(" Produto = " + entity.produto + ",");
+            sql.Append(" Produto = " + entity.produto.Id + ",");
             sql.Append(" MateriaPrima = " + entity.materiaPrima.Id + ",");
-            sql.Append(" valorEnergetico = " + entity.valorEnergetico + ",");
-            sql.Append(" valorDiario = " + entity.valorDiario);
-            sql.Append(" WHERE ID =" + id);
+            sql.Append(" ValorEnergetico = " + entity.valorEnergetico + ",");
+            sql.Append(" ValorDiario = " + entity.valorDiario);
+            sql.Append(" WHERE Id =" + id);
             executeNonQuery(sql.ToString());
 
             return entity;
@@ -127,7 +143,11 @@ namespace api.Data.Repository.PackgeProduto
 
         public new void delete(int id)
         {
-            base.delete(id);
+            StringBuilder sql = new StringBuilder();
+            sql.Append("DELETE Ingredientes ");
+            sql.Append("WHERE Id=" + id);
+
+            executeNonQuery(sql.ToString());
         }
     }
 }
