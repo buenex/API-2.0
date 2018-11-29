@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
-//GET, POST, PUT, DELETE  OK
+//GET,PUT,POST OK
 namespace api.Data.Repository.PackgeProduto
 {
     
