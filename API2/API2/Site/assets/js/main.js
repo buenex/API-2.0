@@ -3,10 +3,10 @@ $(document).ready(function(){
   
      
       if (this.hash !== "") {
-        // Prevent default anchor click behavior
+
         event.preventDefault();
   
-        // Store hash
+       
         var hash = this.hash;
   
      
@@ -25,12 +25,18 @@ $(document).ready(function(){
   {
     $('html, body').animate({scrollTop:0}, 'slow'); 
   }
-  window.onscroll = function() {scrollFunction()};
+function openclose(el)
+ {
+  var display = document.getElementById(el).style.display;
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
-    } else {
-        document.getElementById("myBtn").style.display = "none";
-    }
+  if(display != "inline")
+  {
+      document.getElementById(el).style.display = 'inline';
+  }
+  else if(display == "inline")
+  {
+  
+      document.getElementById(el).style.display = 'none';
+  }
 }
+

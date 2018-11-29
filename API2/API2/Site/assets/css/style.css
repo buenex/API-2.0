@@ -8,11 +8,16 @@ body
     line-height: 30px;
     text-align: center;
 }
+.close
+{
+	opacity: 10;
+	left: 20px;
+}
 #cadastro
 {
 	
-	margin: 50px auto;
-	width: 350px;
+	margin: 60px auto;
+	width: 400px;
     padding: 1em;
     border: 3px solid black;
     border-radius: 1em;
@@ -93,20 +98,6 @@ textarea
 }
 
 /***** General style, all sections *****/
-.cadastrar
-{
-	
-	z-index: 9999;
-	position: fixed;
-	
-}
-.logar
-{
-	
-	z-index: 9999;
-	position: fixed;
-	
-}
 
 .section-container {
     margin: 0 auto;
@@ -143,7 +134,11 @@ textarea
 .section-bottom-button {
 	padding-top: 60px;
 }
-
+.button-cadastrar
+{
+	background:transparent;
+	border: none
+}
 .btn-link-1 {
 	display: inline-block;
 	height: 50px;
@@ -245,7 +240,7 @@ textarea
 
 .navbar-expand-md .navbar-nav .nav-link { padding-left: 1rem; padding-right: 1rem; }
 
-/*Logo*/
+/*Logo
 .navbar-brand 
 {
 	height: 50px;
@@ -254,6 +249,7 @@ textarea
 	border: 0;
 	text-indent: -99999px;
 }
+*/
 /***** Top content *****/
 
 .top-content
