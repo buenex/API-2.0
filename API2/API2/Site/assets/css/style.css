@@ -8,12 +8,43 @@ body
     line-height: 30px;
     text-align: center;
 }
+/* Formularios de Cadastro,Login.*/
 .close
 {
 	opacity: 10;
 	left: 20px;
 }
-#cadastro
+#questionario
+{
+	margin: 70px auto;
+	width: 280px;
+    padding: 1em;
+    border: 3px solid black;
+    border-radius: 1em;
+    background-color: #333;
+	display: none;
+}
+#links
+{
+	
+}
+.button-cadastro
+{
+	border: none;
+	background-color: transparent;
+}
+#cadastro-fisico
+{
+	margin: 60px auto;
+	width: 400px;
+    padding: 1em;
+    border: 3px solid black;
+    border-radius: 1em;
+    background-color: #333;
+	display: none;
+
+}
+#cadastro-juridico
 {
 	
 	margin: 60px auto;
@@ -35,11 +66,14 @@ body
     background-color: #333;
 	display: none;
 }
+/* Final do Formularios de Cadastro,Login.*/
+
 strong { font-weight: 600; }
 
 a, a:hover, a:focus { color: black; text-decoration: none; transition: all .3s; }
 
-h1, h2 {
+h1, h2 
+{
 	margin-top: 10px;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 38px;
@@ -48,7 +82,8 @@ h1, h2 {
     line-height: 50px;
 }
 
-h3 {
+h3 
+{
 	font-family: 'Montserrat', sans-serif;
 	font-size: 22px;
     font-weight: 300;
@@ -63,10 +98,10 @@ img { max-width: 100%; }
 	line-height: 32px;
 }
 
-.colored-text { color: #9b59b6; }
+.colored-text{ color:rgb(0, 0, 0) 9b6; }
 
-::-moz-selection { background: #9b59b6; color: #fff; text-shadow: none; }
-::selection { background: #9b59b6; color: #fff; text-shadow: none; }
+::-moz-selection { background: green; color: #fff; text-shadow: none; }
+::selection { background: green; color: #fff; text-shadow: none; }
 
 
 select
@@ -101,7 +136,7 @@ textarea
 
 .section-container {
     margin: 0 auto;
-    padding-bottom: 80px;
+	padding-bottom: 80px;
 }
 
 .section-container-gray-bg {
@@ -139,6 +174,7 @@ textarea
 	background:transparent;
 	border: none
 }
+/*
 .btn-link-1 {
 	display: inline-block;
 	height: 50px;
@@ -212,7 +248,7 @@ textarea
 	color: #9b59b6;
 	box-shadow: none;
 }
-
+*/
 
 /***** Divider *****/
 
@@ -325,7 +361,6 @@ textarea
 	margin-bottom: 20px;
 }
 
-.about-us-box-text a { border-bottom: 1px dashed #9b59b6; }
 .about-us-box-text a:hover, .about-us-box-text a:focus { border: 0; }
 
 .about-us-box-img img {

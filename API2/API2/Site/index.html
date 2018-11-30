@@ -37,27 +37,28 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="#topo">Home</a>
+						<a class="nav-link" id="buttons" href="#topo">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="#services">Services</a>
+						<a class="nav-link " id="buttons" href="#services">Services</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="#about-us">About</a>
+						<a class="nav-link " id="buttons" href="#about-us">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#blog">Blog</a>
+						<a class="nav-link" id="buttons" href="#blog">Blog</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " href="#parceiros">Partners</a>
+						<a class="nav-link " id="buttons" href="#parceiros">Partners</a>
 					</li>	
 				</ul>
 				<button class="" onclick="openclose('logar')">Logar</button>
 		</div>
 	</nav>
-
+<!-- Tela de Login/Login Screen -->
 	<div class="fixed-top" id="logar">
 		<div class="container">
+			
 		<div>
 				<button class="close"onclick="openclose('logar')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>	
 		<form >
@@ -74,19 +75,46 @@
 				
 			<button class="button-logar"onclick="logar()">Logar</button>
 		  </form>
-		  <button class="button-cadastrar" onclick="openclose('cadastro'),openclose('logar')">Cadastrar</button>
+		  <button class="button-cadastrar" onclick="openclose('questionario'),openclose('logar')">Cadastrar</button>
 		</div>
 	</div>
 </div>		
-	</div>
-
-<div class="fixed-top" id="cadastro" >
-	<div class="container">
+<!-- Tela de Quetionario/Questionnaire Screen -->
 	
+	<div class="fixed-top" id="questionario" >
+			<div class="container">
+					<button class="close" type="button" onclick="openclose('questionario')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
+					<br>
+				<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico')"><img src="" alt=""></button> 
+			
+				<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico')"><img src="" alt=""></button> 
+				
+			</div>
+		</div>
+
+<!-- Tela de Cadastro Fisica/Physics Registration Screen -->
+	
+	<div class="fixed-top" id="cadastro-fisico" >
+			<div class="container">
+					<button class="close" type="button" onclick="openclose('cadastro-fisico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
+					<br>
+				<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico')"><img src="" alt=""></button> 
+			
+				<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico')"><img src="" alt=""></button> 
+				
+			</div>
+		</div>
+		
+		
+		
+		
+<!-- Tela de Cadastro Juridico/Legal Registration Screen -->
+<div class="fixed-top" id="cadastro-juridico" >
+	<div class="container">
 		<form action="/http://localhost:63569/api/juridico" method="post">
-			<button class="close" type="button" onclick="openclose('cadastro')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
+			<button class="close" type="button" onclick="openclose('cadastro-juridico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 			<br>
-			<div class="razao">
+		
 				<label for="Razão">Nome da Empresa:</label>
 				<input type="text" id="razao" />
 			</div>
@@ -116,7 +144,7 @@
 			<div class="razao">
 				<label for="Pais">Pais:</label>
 				<select>
-				  <option>Brasil</optison>
+				  <option><label for="">Brasil</label> </optison>
 				  <option>Estados Unidos</option>
 				  <option>Canada</option>
 				  <option>Rusia</option>
@@ -158,15 +186,15 @@
 </div>
 
 	<!-- Top content / Conteudo Home-->
-	<div class="top-content" id="topo" >
-			
+	<div class="top-content" id="topo">
+
 		<div class="container">
-					
-			
+		
 		</div>
 		
+	
 	</div>
-
+	
 	<!-- Services -->
 	<div id="services" class="services-container section-container">
 		<div class="container">
@@ -388,13 +416,18 @@
 					<div class="about-us-box-text">
 						<h3>Quem Somos</h3>
 						<p class="medium-paragraph">
-								Paragrafo falando sobre nos
+							<strong>NuRÓTULO</strong> é uma startup de identificação de componentes alérgicos em produtos industrializados através da leitura de código de barras por meio de aplicativo de celular.
 						</p>
 						<p>
-								Paragrafo falando sobre nos
+							Nosso APP se iniciou a partir da necessidade de uma mãe, cuja filha é alérgica, em identificar quais produtos sua filha poderia consumir com segurança.
 						</p>
 						<p>
-							Paragrafo falando sobre nos
+							Em 2017 firmamos parceria com a <a id="links" href="https://www.jnmoura.com.br/" target="_blank"><strong>JN Moura Informática</strong></a> que desenvolve o aplicativo e ambiente WEB. A Moura Informática está no mercado há 25 anos oferecendo inovação tecnológica em suas especialidades, atendendo aproximadamente 3.000 clientes em todo o Brasil.
+						</p>
+						<p>
+						<p>
+							Em 2018 nova parceria com <a id="links" href="http://institutosalgado.com.br/" target="_blank"><strong>Instituto Afonso Salgado</strong></a> que nos fornece toda informação nutricional e auxílio em pesquisas. O Instituto Salgado de Saúde Integral atua há mais de 30 anos no trabalho e engajamento profissional promovendo acesso a informações de qualidade para que o profissional da saúde possa atuar de maneira ética e competente promovendo saúde e bem-estar físico, emocional e social ao ser humano.
+						</p>
 						</p>
 						
 					</div>
@@ -525,7 +558,7 @@
 				</div>
 
 				<div class="col-md-6 offset-md-1 footer-right">
-					<a href="#"><i class="fab fa-facebook-f"></i></a>
+					<a href="https://pt-br.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					<a href="#"><i class="fab fa-twitter"></i></a>
 					<a href="#"><i class="fab fa-instagram"></i></a>
 					<a href="#"><i class="fab fa-pinterest"></i></a>
@@ -533,7 +566,7 @@
 			</div>
 			<div class="row">
 				<div class="col footer-bottom">
-					<button onclick="topo()">Aqui</button>
+					
 				</div>
 			</div>
 		</div>
@@ -545,7 +578,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script src="assets/js/jquery.backstretch.min.js"></script>
 	<script src="assets/js/wow.min.js"></script>
-	<script src="assets/js/retina-1.1.0.min.js"></script>
+	<!--<script src="assets/js/retina-1.1.0.min.js"></script>-->
 	<script src="assets/js/waypoints.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
 	<script src="assets/js/Acesso.js"></script>
