@@ -54,3 +54,12 @@ C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.A
 C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorTargetAssemblyInfo.cache
 C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.dll
 C:\Users\lab03\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.pdb
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.TagHelpers.input.cache
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.TagHelpers.output.cache
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorCoreGenerate.cache
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.RazorTargetAssemblyInfo.cs
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.Views.dll
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\bin\Debug\netcoreapp2.1\API2.Views.pdb
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.Views.pdb
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\API2.csproj.CopyComplete
+C:\Users\lab01\Documents\GitHub\API-2.0\API2\API2\obj\Debug\netcoreapp2.1\Razor\wwwroot\Site\Index.g.cshtml.cs

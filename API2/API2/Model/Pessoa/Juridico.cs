@@ -11,6 +11,6 @@ namespace api.Model.PackgePessoa
         public String cnpj { get; set; }
         public string email { get; set; }
         public String senha { get; set; }
-        //public GrupoUsuario grupo{get;set;}
+        public GrupoUsuario grupo{get;set;}
     }
 }
