@@ -78,16 +78,17 @@
 		  <button class="button-cadastrar" onclick="openclose('questionario'),openclose('logar')">Cadastrar</button>
 		</div>
 	</div>
-</div>		
+</div>	
+	
 <!-- Tela de Quetionario/Questionnaire Screen -->
 	
 	<div class="fixed-top" id="questionario" >
 			<div class="container">
 					<button class="close" type="button" onclick="openclose('questionario')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 					<br>
-				<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico')"><img src="" alt=""></button> 
+				<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico'),openclose('questionario')"><img src="" alt=""></button> 
 			
-				<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico')"><img src="" alt=""></button> 
+				<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico'),openclose('questionario')"><img src="" alt=""></button> 
 				
 			</div>
 		</div>
@@ -98,9 +99,11 @@
 			<div class="container">
 					<button class="close" type="button" onclick="openclose('cadastro-fisico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 					<br>
-				<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico')"><img src="" alt=""></button> 
+					<p>Entre em nosso app e faça seu cadastro</p>
 			
-				<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico')"><img src="" alt=""></button> 
+					<a class="googleplay" target="_blank" href="#">NuRotulo</a>
+					<a href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/img/icons/apple.png" alt=""></a>
+				
 				
 			</div>
 		</div>
@@ -114,7 +117,6 @@
 		<form action="/http://localhost:63569/api/juridico" method="post">
 			<button class="close" type="button" onclick="openclose('cadastro-juridico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 			<br>
-		
 				<label for="Razão">Nome da Empresa:</label>
 				<input type="text" id="razao" />
 			</div>
@@ -144,7 +146,7 @@
 			<div class="razao">
 				<label for="Pais">Pais:</label>
 				<select>
-				  <option><label for="">Brasil</label> </optison>
+				  <option>Brasil</option>
 				  <option>Estados Unidos</option>
 				  <option>Canada</option>
 				  <option>Rusia</option>
@@ -524,6 +526,7 @@
 					</div>
 
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
+							
 						<li class="nav-item">
 							<a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
 							 aria-selected="true"></a>

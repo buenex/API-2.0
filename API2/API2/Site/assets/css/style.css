@@ -42,7 +42,7 @@ body
     border-radius: 1em;
     background-color: #333;
 	display: none;
-
+	color: white;
 }
 #cadastro-juridico
 {
@@ -276,16 +276,24 @@ textarea
 
 .navbar-expand-md .navbar-nav .nav-link { padding-left: 1rem; padding-right: 1rem; }
 
-/*Logo
+
 .navbar-brand 
 {
-	height: 50px;
-	width: 136px;
+	
+	width: 100px;
 	background: url(/assets/img/logo.png) ; 
 	border: 0;
 	text-indent: -99999px;
 }
-*/
+
+.googleplay
+{
+	
+	width: 100px;
+	background: url(/assets/img/icons/play.png); 
+	border: 0;
+	text-indent: -99999px;
+}
 /***** Top content *****/
 
 .top-content
