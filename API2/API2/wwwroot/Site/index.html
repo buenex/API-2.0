@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt">
 
 <head>
@@ -22,8 +22,7 @@
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"> 
-    -->
+	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"> -->
 
 </head>
 
@@ -38,19 +37,19 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" id="buttons" href="#topo">Home</a>
+						<a class="nav-link" id="button" onclick="alert('pastel de queijo')" href="#topo">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " id="buttons" href="#services">Services</a>
+						<a class="nav-link " id="button" href="#services">Services</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " id="buttons" href="#about-us">About</a>
+						<a class="nav-link " id="scroll-link" href="#about-us">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="buttons" href="#blog">Blog</a>
+						<a class="nav-link" id="scroll-link" href="#blog">Blog</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " id="buttons" href="#parceiros">Partners</a>
+						<a class="nav-link "id="scroll-link" href="#parceiros">Partners</a>
 					</li>	
 				</ul>
 				<button class="" onclick="openclose('logar')">Logar</button>
@@ -58,38 +57,36 @@
 	</nav>
 <!-- Tela de Login/Login Screen -->
 	<div class="fixed-top" id="logar">
+			<button class="close"onclick="openclose('logar')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>	
 		<div class="container">
-			
 		<div>
-				<button class="close"onclick="openclose('logar')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>	
-		<form >
+			<form>
 			<div>
-			  <label for="Email">Email:</label>
 			  <input type="email" class="form-control" id="emaillogar" aria-describedby="emailHelp" placeholder="Digite seu Email">
-			  
 			</div>
+			<br>
 			<div>
-			  <label id for="Senha">Senha:</label>
 			  <input type="password" class="form-control" id="senhalogar" placeholder="Digite sua senha">
-			  <a href=""><label id="">Esqueci minha senha</label></a>
+			  
+			  <a href=""><strong><label id="">Esqueci minha senha</label></strong></a>
 			</div>
 				
 			<button class="button-logar"onclick="logar()">Logar</button>
 		  </form>
-		  <button class="button-cadastrar" onclick="openclose('questionario'),openclose('logar')">Cadastrar</button>
 		</div>
+		<button class="button-cadastro" onclick="openclose('questionario'),openclose('logar')">Cadastrar</button>
 	</div>
 </div>	
 	
 <!-- Tela de Quetionario/Questionnaire Screen -->
 	
 	<div class="fixed-top" id="questionario" >
+			<button class="close" type="button" onclick="openclose('questionario')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 			<div class="container">
-					<button class="close" type="button" onclick="openclose('questionario')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
-					<br>
-				<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico'),openclose('questionario')"><img src="" alt=""></button> 
 			
-				<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico'),openclose('questionario')"><img src="" alt=""></button> 
+		<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico'),openclose('questionario')"><img src="" alt=""></button> 
+			
+		<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico'),openclose('questionario')"><img src="" alt=""></button> 
 				
 			</div>
 		</div>
@@ -97,8 +94,9 @@
 <!-- Tela de Cadastro Fisica/Physics Registration Screen -->
 	
 	<div class="fixed-top" id="cadastro-fisico" >
+			<button class="close" type="button" onclick="openclose('cadastro-fisico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 			<div class="container">
-					<button class="close" type="button" onclick="openclose('cadastro-fisico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
+					
 					<br>
 					<p>Entre em nosso app e faça seu cadastro</p>
 			
@@ -113,77 +111,56 @@
 		
 		
 <!-- Tela de Cadastro Juridico/Legal Registration Screen -->
-<div class="fixed-top" id="cadastro-juridico" >
+<div class="fixed-top" id="cadastro-juridico">
+		<button class="close" type="button" onclick="openclose('cadastro-juridico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 	<div class="container">
-		<form action="/http://localhost:63569/api/juridico" method="post">
-			<button class="close" type="button" onclick="openclose('cadastro-juridico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
-			<br>
-				<label for="Razão">Nome da Empresa:</label>
-				<input type="text" id="razao" />
-			</div>
-			<div class="razao">
-				<label for="Razão">Razão Social:</label>
-				<input type="text" id="razao" />
-			</div>
+			<div id="cadastro">
+					<form method="post" action=""> 
+					  <h1>Cadastro</h1> 
+					  
+					  <p> 
+					
+						<input name="nome_cad" required="required" type="text" placeholder=" Digite o Nome da sua Empresa" />
+					  </p>
+					  <p> 
+					
+							<input name="nome_cad" required="required" type="text" placeholder=" Digite a razão social " />
+						  </p>
+						  <p> 
+					
+								<input name="nome_cad" required="required" type="text" placeholder=" Digite o CNPJ da Empresa" />
+							  </p>
+					  <p> 
+						<input name="email_cad" required="required" type="email" placeholder=" Digite seu Email"/> 
+					  </p>
+					  
+					  <p> 
 
-			<div class="razao">
-				<label for="Pais">CNPJ:</label>
-				<input type="text" id="pais" />
-			</div>
-			<div class="razao">
-				<label for="Razão">Razão Social:</label>
-				<input type="text" id="razao" />
-			</div>
-
-			<div class="razao">
-				<label for="Email">Email:</label>
-				<input type="email" id="email" />
-			</div>	
-			
-			<div class="razao">
-				<label for="Senha">Senha:</label>
-				<input type="password" id="senha" />
-			</div>
-			<div class="razao">
-				<label for="Pais">Pais:</label>
-				<select>
-				  <option>Brasil</option>
-				  <option>Estados Unidos</option>
-				  <option>Canada</option>
-				  <option>Rusia</option>
-				  <option>Japão</option>
-				</select>
-			  </div>
-			<div class="razao">
-				<label for="Estado">Estado:</label>
-				<select>
-					<option><label id="">Default</label></option>
-					<option><label id="">Default</label></option>
-					<option><label id="">Default</label></option>
-					<option><label id="">Default</label></option>
-					<option><label id="">Default</label></option>
-				  </select>
-			</div>
-			<div class="razao">
-				<label for="Cidade">Cidade:</label>
-				<select>
-						<option><label id="">Default</label></option>
-						<option><label id="">Default</label></option>
-						<option><label id="">Default</label></option>
-						<option><label id="">Default</label></option>
-						<option><label id="">Default</label></option>
-				  </select>
-			</div>
-			<div class="razao">
-				<label for="endereco">Endereço</label>
-				<input type="text" id="endereco" />
-			</div>
-	<br>
-			<input type="submit" id="submit-button" value="Cadastrar" />
-			<input type="button" value="Cadastrar" onclick="send()">
-		</div>
-		</form>
-	</div>
+						<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
+					  </p>
+					  <p> 
+	
+							<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
+						  </p>
+						  <p> 
+								<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
+							  </p>
+							  <p> 
+									<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
+								  </p>
+					  
+					  <p> 
+						<input type="submit" value="Cadastrar"/> 
+					  </p>
+					  
+					  <p class="link">  
+						Já tem conta?
+						<a href="#paralogin"> Ir para Login </a>
+					  </p>
+					</form>
+				  </div>
+				</div>
+			  </div> 
 </div>
 
 </div>
