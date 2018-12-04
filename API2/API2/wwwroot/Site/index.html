@@ -11,7 +11,8 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -31,156 +32,208 @@
 	<nav class="navbar navbar-dark fixed-top navbar-expand-md navbar-no-bg">
 		<div class="container">
 			<a class="navbar-brand" href="index.html">NuRotulo</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+			 aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a class="nav-link" id="button" onclick="alert('pastel de queijo')" href="#topo">Home</a>
+						<a class="nav-link" id="button" onclick="scrollbar('home')" href="#topo">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " id="button" href="#services">Services</a>
+						<a class="nav-link " id="button" onclick="scrollbar('services')" href="#services">Services</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link " id="scroll-link" href="#about-us">About</a>
+						<a class="nav-link " id="scroll-link" onclick="scrollbar('about')" href="#about-us">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" id="scroll-link" href="#blog">Blog</a>
+						<a class="nav-link" id="scroll-link" onclick="scrollbar('blog')" href="#blog">Blog</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link "id="scroll-link" href="#parceiros">Partners</a>
-					</li>	
+						<a class="nav-link " id="scroll-link" onclick="scrollbar('partners')" href="#parceiros">Partners</a>
+					</li>
 				</ul>
-				<button class="" onclick="openclose('logar')">Logar</button>
-		</div>
+				<button class="button-logar" onclick="openclose('logar')">Logar</button>
+			</div>
 	</nav>
-<!-- Tela de Login/Login Screen -->
+	<!-- Tela de Login/Login Screen -->
 	<div class="fixed-top" id="logar">
-			<button class="close"onclick="openclose('logar')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>	
+		<button class="close" onclick="openclose('logar')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
 		<div class="container">
-		<div>
-			<form>
 			<div>
-			  <input type="email" class="form-control" id="emaillogar" aria-describedby="emailHelp" placeholder="Digite seu Email">
+				<form>
+
+					<input type="email" class="form-control" id="emaillogar" aria-describedby="emailHelp" placeholder="Digite seu Email">
+
+					<input type="password" class="form-control" id="senhalogar" placeholder="Digite sua senha">
+
+					<a href=""><strong><label id="">Esqueci minha senha</label></strong></a>
+
+
+					<button class="button-logar" onclick="logar()">Logar</button>
+				</form>
 			</div>
-			<br>
-			<div>
-			  <input type="password" class="form-control" id="senhalogar" placeholder="Digite sua senha">
-			  
-			  <a href=""><strong><label id="">Esqueci minha senha</label></strong></a>
-			</div>
-				
-			<button class="button-logar"onclick="logar()">Logar</button>
-		  </form>
+			<button class="button-cadastro" onclick="openclose('questionario'),openclose('logar')">Cadastrar</button>
 		</div>
-		<button class="button-cadastro" onclick="openclose('questionario'),openclose('logar')">Cadastrar</button>
 	</div>
-</div>	
-	
-<!-- Tela de Quetionario/Questionnaire Screen -->
-	
-	<div class="fixed-top" id="questionario" >
-			<button class="close" type="button" onclick="openclose('questionario')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
-			<div class="container">
-			
-		<button class="col-5 button-cadastro"onclick="openclose('cadastro-fisico'),openclose('questionario')"><img src="" alt=""></button> 
-			
-		<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico'),openclose('questionario')"><img src="" alt=""></button> 
-				
-			</div>
-		</div>
 
-<!-- Tela de Cadastro Fisica/Physics Registration Screen -->
-	
-	<div class="fixed-top" id="cadastro-fisico" >
-			<button class="close" type="button" onclick="openclose('cadastro-fisico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
-			<div class="container">
-					
-					<br>
-					<p>Entre em nosso app e faça seu cadastro</p>
-			
-					<a class="googleplay" target="_blank" href="#">NuRotulo</a>
-					<a href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/img/icons/apple.png" alt=""></a>
-				
-				
-			</div>
+	<!-- Tela de Quetionario/Questionnaire Screen -->
+
+	<div class="fixed-top" id="questionario">
+		<button class="close" type="button" onclick="openclose('questionario')"><img src="./assets/img/icons/x.png" height="20px"
+			 width="20px"></button>
+		<div class="container">
+
+			<button class="col-5 button-cadastro" onclick="openclose('cadastro-fisico'),openclose('questionario')">Pessoa Fisica</button>
+
+			<button class="col-5 button-cadastro" onclick="openclose('cadastro-juridico'),openclose('questionario')">Pessoa
+				Juridica</button>
+
 		</div>
-		
-		
-		
-		
-<!-- Tela de Cadastro Juridico/Legal Registration Screen -->
-<div class="fixed-top" id="cadastro-juridico">
-		<button class="close" type="button" onclick="openclose('cadastro-juridico')"><img src="./assets/img/icons/x.png" height="20px" width="20px"></button>
-	<div class="container">
+	</div>
+
+	<!-- Tela de Cadastro Fisica/Physics Registration Screen -->
+
+	<div class="fixed-top" id="cadastro-fisico">
+		<button class="close" type="button" onclick="openclose('cadastro-fisico')"><img src="./assets/img/icons/x.png" height="20px"
+			 width="20px"></button>
+		<div class="container">
+
+			<br>
+			<p>Entre em nosso app e faça seu cadastro</p>
+
+			<a class="googleplay" target="_blank" href="#">NuRotulo</a>
+			<a href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/img/icons/apple.png" alt=""></a>
+
+
+		</div>
+	</div>
+
+
+
+
+	<!-- Tela de Cadastro Juridico/Legal Registration Screen -->
+	<div class="fixed-top" id="cadastro-juridico">
+		<button class="close" type="button" onclick="openclose('cadastro-juridico')"><img src="./assets/img/icons/x.png"
+			 height="20px" width="20px"></button>
+		<div class="container">
 			<div id="cadastro">
-					<form method="post" action=""> 
-					  <h1>Cadastro</h1> 
-					  
-					  <p> 
-					
-						<input name="nome_cad" required="required" type="text" placeholder=" Digite o Nome da sua Empresa" />
-					  </p>
-					  <p> 
-					
-							<input name="nome_cad" required="required" type="text" placeholder=" Digite a razão social " />
-						  </p>
-						  <p> 
-					
-								<input name="nome_cad" required="required" type="text" placeholder=" Digite o CNPJ da Empresa" />
-							  </p>
-					  <p> 
-						<input name="email_cad" required="required" type="email" placeholder=" Digite seu Email"/> 
-					  </p>
-					  
-					  <p> 
+				<h1>Cadastro</h1>
+				<form method="post" action="">
 
-						<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
-					  </p>
-					  <p> 
-	
-							<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
-						  </p>
-						  <p> 
-								<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
-							  </p>
-							  <p> 
-									<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="1234"/>
-								  </p>
-					  
-					  <p> 
-						<input type="submit" value="Cadastrar"/> 
-					  </p>
-					  
-					  <p class="link">  
-						Já tem conta?
-						<a href="#paralogin"> Ir para Login </a>
-					  </p>
-					</form>
-				  </div>
-				</div>
-			  </div> 
-</div>
+					<input name="nome_cad" required="required" type="text" placeholder=" Digite o Nome da sua Empresa" />
 
-</div>
+					<input name="nome_cad" required="required" type="text" placeholder=" Digite a Razão Social " />
 
+					<input name="nome_cad" required="required" type="text" placeholder=" Digite o CNPJ da Empresa" />
+
+					<input name="email_cad" required="required" type="email" placeholder=" Digite seu Email" />
+
+					<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder=" Digite sua Senha" />
+					<input id="senha_cad" name="senha_cad" required="required" type="password" placeholder=" Confirme sua Senha" />
+					<select class="drop" name="Pais">
+						<option value="volvo">Brasil</option>
+						<option value="saab">Estados Unidos</option>
+						<option value="fiat">Canada</option>
+						<option value="audi">França</option>
+						<option value="audi">Australia</option>
+						<option value="audi">Japão</option>
+						<option value="audi">Italia</option>
+						<option value="audi">Alemanha</option>
+						<option value="audi">Belgica</option>
+					</select>
+
+					<select class="drop" name="Pais">
+
+					</select>
+					<select class="drop" name="Pais">
+
+					</select>
+
+					<button class="button-juridico">Cadastrar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	</div>
+	<!--<div class="col-md-2 link">
+			<a class="googleplay" href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/img/icons/apple.png" alt=""></a>
+			<a class="appstore" href="http://" target="_blank" rel="noopener noreferrer"><img src="./assets/img/icons/play.png" alt=""></a>
+		</div>-->
 	<!-- Top content / Conteudo Home-->
 	<div class="top-content" id="topo">
 
 		<div class="container">
-		
+			<br>
+			<br>
 		</div>
-		
-	
+
 	</div>
-	
+
 	<!-- Services -->
 	<div id="services" class="services-container section-container">
 		<div class="container">
 			<div class="row">
 				<div class="col services section-description wow fadeIn">
 					<label for=""></label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 services-box wow fadeInUp">
+					<div class="row">
+
+						<div class="col-md-8">
+							<h3>Praticidade</h3>
+							<p>texto falando sobre a qualidade citada</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 services-box wow fadeInDown">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="services-box-icon">
+								<i class=""></i>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>Facilidade</h3>
+							<p>texto falado sobre q qualidade citada</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 services-box wow fadeInUp">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="services-box-icon">
+								<i class=""></i>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>Gratuito</h3>
+							<p>texto falado sobre q qualidade citada</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 portfolio-box wow fadeInUp">
+					<div class="portfolio-box-image">
+						<img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
+					</div>
+				</div>
+				<div class="col-md-4 portfolio-box wow fadeInDown">
+					<div class="portfolio-box-image">
+						<img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
+					</div>
+
+				</div>
+				<div class="col-md-4 portfolio-box wow fadeInUp">
+					<div class="portfolio-box-image">
+						<img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -242,76 +295,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-					<div class="col-md-4 services-box wow fadeInUp">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="services-box-icon">
-									<i class=""></i>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<h3>Praticidade</h3>
-								<p>texto falando sobre a qualidade citada</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 services-box wow fadeInDown">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="services-box-icon">
-									<i class=""></i>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<h3>Facilidade</h3>
-								<p>texto falado sobre q qualidade citada</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 services-box wow fadeInUp">
-						<div class="row">
-							<div class="col-md-4">
-								<div class="services-box-icon">
-									<i class=""></i>
-								</div>
-							</div>
-							<div class="col-md-8">
-								<h3>Gratuito</h3>
-								<p>texto falado sobre q qualidade citada</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-						<div class="col-md-4 portfolio-box wow fadeInUp">
-							<div class="portfolio-box-image">
-								<img src="assets/img/portfolio/1.jpg" alt="" data-at2x="assets/img/portfolio/1.jpg">
-							</div>
-						</div>
-						<div class="col-md-4 portfolio-box wow fadeInDown">
-							<div class="portfolio-box-image">
-								<img src="assets/img/portfolio/2.jpg" alt="" data-at2x="assets/img/portfolio/2.jpg">
-							</div>
-		
-						</div>
-						<div class="col-md-4 portfolio-box wow fadeInUp">
-							<div class="portfolio-box-image">
-								<img src="assets/img/portfolio/3.jpg" alt="" data-at2x="assets/img/portfolio/3.jpg">
-							</div>
-						</div>
-					</div>
 		</div>
 	</div>
 
 	<!-- Blog -->
-	<div id="blog"class="blog-container section-container">
+	<div id="blog" class="blog-container section-container">
 		<div class="container">
 
 			<div class="row">
 				<div class="col blog section-description wow fadeIn">
 					<h2>Blog</h2>
-			
+
 				</div>
 			</div>
 
@@ -362,7 +356,7 @@
 							<h3><a href="#">Noticia,Artigo ou Receita</a> <i class="fas fa-angle-right"></i></h3>
 							<div class="blog-box-date"><i class="far fa-calendar"></i> Data de publicação</div>
 							<p>
-								Texto sobre o assunto citado a cima 
+								Texto sobre o assunto citado a cima
 							</p>
 						</div>
 					</div>
@@ -389,27 +383,36 @@
 	<br>
 	<br>
 	<!-- About us -->
-	<div id="about-us"class="about-us-container section-container section-container-gray-bg">
+	<div id="about-us" class="about-us-container section-container section-container-gray-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-12 col-lg-7 about-us-box wow fadeInLeft">
 					<div class="about-us-box-text">
 						<h3>Quem Somos</h3>
 						<p class="medium-paragraph">
-							<strong>NuRÓTULO</strong> é uma startup de identificação de componentes alérgicos em produtos industrializados através da leitura de código de barras por meio de aplicativo de celular.
+							<strong>NuRÓTULO</strong> é uma startup de identificação de componentes alérgicos em produtos industrializados
+							através da leitura de código de barras por meio de aplicativo de celular.
 						</p>
 						<p>
-							Nosso APP se iniciou a partir da necessidade de uma mãe, cuja filha é alérgica, em identificar quais produtos sua filha poderia consumir com segurança.
+							Nosso APP se iniciou a partir da necessidade de uma mãe, cuja filha é alérgica, em identificar quais produtos
+							sua filha poderia consumir com segurança.
 						</p>
 						<p>
-							Em 2017 firmamos parceria com a <a id="links" href="https://www.jnmoura.com.br/" target="_blank"><strong>JN Moura Informática</strong></a> que desenvolve o aplicativo e ambiente WEB. A Moura Informática está no mercado há 25 anos oferecendo inovação tecnológica em suas especialidades, atendendo aproximadamente 3.000 clientes em todo o Brasil.
+							Em 2017 firmamos parceria com a <a id="links" href="https://www.jnmoura.com.br/" target="_blank"><strong>JN
+									Moura Informática</strong></a> que desenvolve o aplicativo e ambiente WEB. A Moura Informática está no mercado
+							há 25 anos oferecendo inovação tecnológica em suas especialidades, atendendo aproximadamente 3.000 clientes em
+							todo o Brasil.
 						</p>
 						<p>
-						<p>
-							Em 2018 nova parceria com <a id="links" href="http://institutosalgado.com.br/" target="_blank"><strong>Instituto Afonso Salgado</strong></a> que nos fornece toda informação nutricional e auxílio em pesquisas. O Instituto Salgado de Saúde Integral atua há mais de 30 anos no trabalho e engajamento profissional promovendo acesso a informações de qualidade para que o profissional da saúde possa atuar de maneira ética e competente promovendo saúde e bem-estar físico, emocional e social ao ser humano.
+							<p>
+								Em 2018 nova parceria com <a id="links" href="http://institutosalgado.com.br/" target="_blank"><strong>Instituto
+										Afonso Salgado</strong></a> que nos fornece toda informação nutricional e auxílio em pesquisas. O Instituto
+								Salgado de Saúde Integral atua há mais de 30 anos no trabalho e engajamento profissional promovendo acesso a
+								informações de qualidade para que o profissional da saúde possa atuar de maneira ética e competente promovendo
+								saúde e bem-estar físico, emocional e social ao ser humano.
+							</p>
 						</p>
-						</p>
-						
+
 					</div>
 				</div>
 				<div class="col-12 col-lg-5 about-us-box wow fadeInUp">
@@ -419,12 +422,14 @@
 				</div>
 
 			</div>
-			
+
 		</div>
 	</div>
+
 	<!-- Parceiros -->
-	<div id="parceiros"class=" fundinho section-container section-container-image-bg">
+	<div id="parceiros" class=" backgroundpartners section-container section-container-image-bg">
 		<div class="container">
+
 			<div class="row">
 				<div class="col testimonials section-description wow fadeIn"></div>
 			</div>
@@ -434,14 +439,19 @@
 					<div class="tab-content" id="myTabContent">
 						<div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
 							<div class="testimonial-image">
-								<img src="assets/img/testimonials/1.jpg" alt="testimonial-1" data-at2x="assets/img/testimonials/1.jpg">
+								<img src="assets/img/partners/teste.jpg" alt="testimonial-1" data-at2x="assets/img/testimonials/1.jpg">
 							</div>
 							<div class="testimonial-text">
 								<p>
-									
-									Texto sobre o parceiro
-									<br>
-									
+									A JN Moura Informática é uma software house que desenvolve sistemas para Automação Comercial. Com 25 anos de
+									atuação, atende aproximadamente 3 mil clientes em todo o Brasil. Focada na atualização da gestão comercial e
+									do aparato fiscal de empresas, oferece inovação tecnológica por meio de dez divisões especializadas em
+									diferentes tipos de negócios: PetMoura, referência nacional e líder do mercado de softwares para pet shops,
+									clínicas veterinárias e centro de estética; PostoMoura, voltado para postos de combustível; FarMoura, para
+									farmácias e drogarias; MagazineMoura, para lojas de roupas e calçados; O.S.Moura, para estabelecimentos que
+									utilizam ordem de serviço; Cardápio Moura, para restaurantes, bares e lanchonetes; SisMoura, para lojas de
+									varejo; AgroMoura, o melhor software para administração de fazendas; CottonMoura¸para organizar a gestão de
+									algodoeiras e PedidoMoura, ideal para distribuidoras e empresas que realizam pedidos de clientes externos.
 								</p>
 							</div>
 						</div>
@@ -452,18 +462,18 @@
 							<div class="testimonial-text">
 								<p>
 									Texto sobre o parceiro<br>
-									
+
 								</p>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
 							<div class="testimonial-image">
-							<a href=""><img src="assets/img/testimonials/3.jpg" alt="testimonial-3" data-at2x="assets/img/testimonials/3.jpg"></a>
+								<a href=""><img src="assets/img/testimonials/3.jpg" alt="testimonial-3" data-at2x="assets/img/testimonials/3.jpg"></a>
 							</div>
 							<div class="testimonial-text">
 								<p>
 									Texto sobre o parceiro<br>
-									
+
 								</p>
 							</div>
 						</div>
@@ -473,7 +483,7 @@
 							</div>
 							<div class="testimonial-text">
 								<p>Texto sobre o parceiro<br>
-									
+
 								</p>
 							</div>
 						</div>
@@ -485,7 +495,7 @@
 								<p>
 									Texto sobre o parceiro
 									<br>
-									
+
 								</p>
 							</div>
 						</div>
@@ -497,14 +507,14 @@
 								<p>
 									Texto sobre o parceiro
 									<br>
-									
+
 								</p>
 							</div>
 						</div>
 					</div>
 
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
-							
+
 						<li class="nav-item">
 							<a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1"
 							 aria-selected="true"></a>
@@ -522,8 +532,8 @@
 							<a class="nav-link" id="tab5-tab" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab4" aria-selected="false"></a>
 						</li>
 						<li class="nav-item">
-								<a class="nav-link" id="tab6-tab" data-toggle="tab" href="#tab6" role="tab" aria-controls="tab4" aria-selected="false"></a>
-							</li>
+							<a class="nav-link" id="tab6-tab" data-toggle="tab" href="#tab6" role="tab" aria-controls="tab4" aria-selected="false"></a>
+						</li>
 					</ul>
 
 				</div>
@@ -535,7 +545,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-				<a href="#"><img src="./assets/img/icons/logo.png" width="80" height="50" alt=""></a>
+					<a href="#"><img src="./assets/img/icons/logo.png" width="80" height="50" alt=""></a>
 				</div>
 
 				<div class="col-md-6 offset-md-1 footer-right">
@@ -547,7 +557,7 @@
 			</div>
 			<div class="row">
 				<div class="col footer-bottom">
-					
+
 				</div>
 			</div>
 		</div>
@@ -556,7 +566,8 @@
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
 	<script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
 	<script src="assets/js/jquery.backstretch.min.js"></script>
 	<script src="assets/js/wow.min.js"></script>
 	<!--<script src="assets/js/retina-1.1.0.min.js"></script>-->
@@ -564,7 +575,7 @@
 	<script src="assets/js/scripts.js"></script>
 	<script src="assets/js/Acesso.js"></script>
 	<script src="./assets/js/main.js"></script>
-	
+
 </body>
 
 </html>

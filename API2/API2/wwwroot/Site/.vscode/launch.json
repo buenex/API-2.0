@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///C:/Users/lab01/Documents/GitHub/API-2.0/API2/API2/Site/index.html",
+            "url": "file:///C:/Users/lab01/Documents/GitHub/API-2.0/API2/API2/wwwroot/Site/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
