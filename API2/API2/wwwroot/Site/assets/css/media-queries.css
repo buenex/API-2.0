@@ -33,7 +33,7 @@
 	
 	.navbar.navbar-no-bg { background: green; }
 	.navbar-dark .navbar-toggler { border-color: #444; }
-	.navbar-dark .navbar-toggler:focus { background: #333; outline: 0; }
+	.navbar-dark .navbar-toggler:focus { background: black; outline: 0; }
 	.navbar-expand-md .navbar-nav .nav-link { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 
 	.top-content { padding: 140px 0; }
@@ -77,21 +77,15 @@
 
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (   min--moz-device-pixel-ratio: 2),
-only screen and (     -o-min-device-pixel-ratio: 2/1),
-only screen and (        min-device-pixel-ratio: 2),
-only screen and (                min-resolution: 192dpi),
+only screen and ( min-moz-device-pixel-ratio: 2),
+only screen and ( -o-min-device-pixel-ratio: 2/1),
+only screen and (	-min-device-pixel-ratio: 2),
+only screen and (  min-resolution: 192dpi),
 only screen and (  min-resolution: 2dppx) {
 	
 	
     .navbar-brand {
     	background-image: url(../img/logo@2x.png) !important; background-repeat: no-repeat !important; background-size: 136px 39px !important;
 	}
-
-	.googleplay {
-    	background-image: url(../img/logo@2x.png) !important; background-repeat: no-repeat !important; background-size: 136px 39px !important;
-	}
-	
-	
 	
 }

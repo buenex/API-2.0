@@ -1,28 +1,6 @@
-//$(document).ready(function(){
-   // $("a").on('click', function(event) {
-  
-     
-    //  if (this.hash !== "") {
 
-      //  event.preventDefault();
-  
-       
-      //  var hash = this.hash;
-
-      //  $('html, body').animate({
-     //    scrollTop: $(hash).offset().top
-      //  }, 800, function(){
-     //
-        
-        //  window.location.hash = hash;
-       // });
-    //  } 
-  // });
-  // });
-
-function scrollbar(b)
+function scrollbar(a)
 {
-  a = b;
   if(a == "blog")
   {
     $('html, body').animate({scrollTop:1500}, 'slow');
@@ -33,7 +11,7 @@ function scrollbar(b)
   }
   else if(a== "about")
   {
-    $('html, body').animate({scrollTop:2150}, 'slow');
+    $('html, body').animate({scrollTop:2268}, 'slow');
   }
   else if(a =="partners")
   {

@@ -21,6 +21,22 @@ body
 	border: none;
 	background-color: #333;
 	border-radius: 0.6em;
+	
+}
+.senha:hover
+{
+	font-size: 11pt;
+	border: none;
+	background: none;
+	color: white;
+}
+.senha
+{
+	font-size: 11pt;
+	color: black;
+	border: none;
+	background: none;
+	
 }
 #form
 {
@@ -43,8 +59,7 @@ body
 }
 .appstore
 {
-	width: 100px;
-	background: url(/assets/img/icons/apple.png);
+	
 }
 .link
 {
@@ -54,13 +69,18 @@ body
 {
 	align-content: center;
 	border: none;
-	background-color: wh;
+	background-color: white;
 	border-radius: 0.6em;
+}
+.textoblack
+{
+	font-size: 13pt;
+	color: black;
 }
 #cadastro-fisico
 {
-	margin: 60px auto;
-	width: 350px;
+	margin: 90px auto;
+	width: 312px;
     padding: 1em;
     border-radius: 1em;
     background-color: rgba(102, 102, 102, 0.815);;
@@ -136,7 +156,6 @@ option
 	border-radius: 2em;
 	width: 100%;
 	height:34px;
-
 }
 select
 {
@@ -152,18 +171,6 @@ input
 	height:34px;
 	border-radius: 1em;
 }
-textarea 
-{
-    /* Para alinhar corretamente os campos de texto de várias linhas com sua label*/
-    vertical-align: top;
-
-    /* Para dar espaço suficiente para digitar algum texto */
-    height: 5em;
-
-    /* Para permitir aos usuários redimensionarem qualquer textarea verticalmente. Ele não funciona em todos os browsers */
-    resize: vertical;
-}
-
 
 /***** General style, all sections *****/
 
@@ -315,18 +322,24 @@ textarea
 
 .navbar-brand 
 {
-	
-	width: 100px;
-	background: url(/assets/img/logo.png) ; 
+	width: 330px;
+	height: 39px;
+	background: url(../img/logo.png) left center no-repeat;
 	border: 0;
 	text-indent: -99999px;
 }
+.button-senha
+{
 
+	background: none;
+	border: none;
+	height: 33px;
+}
 .googleplay
 {
 	
-	width: 100px;
-	background: url(/assets/img/icons/play.png); 
+	width: 500px;
+	background: url(../img/icons/play.png) left center no-repeat;
 	border: 0;
 	text-indent: -99999px;
 }
@@ -645,33 +658,56 @@ textarea
 footer {
 	padding: 40px 0 0 0;
 	background: #444;
-	color: #aaa;
+	color:white;
 	text-align: left;
 }
 
-.footer-left a { color: #ddd; border-bottom: 1px dashed #ddd; }
-.footer-left a:hover, .footer-left a:focus { color: #ddd; border: 0; }
+.footer-left a 
+{
+	 color: #ddd; border-bottom: 1px dashed #ddd;
+	
+}
+.footer-left
+{
+	text-align: left;
+	color:#F5FFFA
+}
+.footer-left a:hover, .footer-left a:focus 
+{
 
-.footer-right {
+	 color: #ddd; border: 0;
+	 	
+}
+
+.footer-right 
+{
 	text-align: right;
 }
 
-.footer-right a {
-	margin: 0 6px;
+.footer-right a 
+{
+	margin: 08px;
     font-size: 32px;
-    color: #aaa;
+    color:#F5FFFA;
 }
-.footer-right a:hover, .footer-right a:focus { color: #eee; }
+.footer-right a:hover, .footer-right a:focus 
+{ 
+	color: green;
+ }
 
-.footer-bottom {
+.footer-bottom 
+{
 	padding-bottom: 25px;
 	text-align: center;
 }
 
 .footer-bottom a {
 	font-size: 32px;
-    color: #666;
+    color: #F5FFFA;
     line-height: 40px;
 }
 
-.footer-bottom a:hover, .footer-bottom a:focus { color: #888; }
+.footer-bottom a:hover, .footer-bottom a:focus 
+{ 
+	color: green; 
+}
