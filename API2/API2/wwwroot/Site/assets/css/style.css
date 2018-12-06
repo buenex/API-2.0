@@ -597,7 +597,11 @@ input
 	border: 0;
 }
 
+.text
+{
+	text-align: center;
 
+}
 /***** Blog *****/
 
 .blog-box {
