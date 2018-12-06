@@ -25,10 +25,10 @@ namespace api.Data.Repository.PackgeProduto
             sql.Append(" FROM Produto");
 
             var listRows = executeDataTable(sql.ToString());
-
+            Produto produto = new Produto();
             foreach (Dictionary<String, object> reader in listRows)
             {
-                Produto produto = new Produto();
+                
                 produto.Id = Convert.ToInt32(reader["Id"].ToString());
                 produto.descricao = reader["Descricao"].ToString();
                 produto.preparo = reader["Preparo"].ToString();
@@ -52,9 +52,10 @@ namespace api.Data.Repository.PackgeProduto
                     Ingredientes ingrediente = new Ingredientes();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
-                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["ValorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["ValorEnergetico"]).ToString());
+                    ingrediente.produto = new Produto();
+                    ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
 
                     MateriaPrimaRepository repoMat = new MateriaPrimaRepository();
                     ingrediente.materiaPrima = repoMat.getById(Convert.ToInt32(reader2["MateriaPrima"].ToString()));
