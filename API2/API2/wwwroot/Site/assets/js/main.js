@@ -15,7 +15,7 @@ function scrollbar(a)
   }
   else if(a =="partners")
   {
-    $('html, body').animate({scrollTop:3000}, 'slow');
+    $('html, body').animate({scrollTop:3065}, 'slow');
   }
   else if(a=="services")
   {

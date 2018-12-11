@@ -72,6 +72,22 @@ body
 	background-color: white;
 	border-radius: 0.6em;
 }
+.button-cadastro-juridico
+{
+	margin-top: 10px;
+	align-content: center;
+	border: none;
+	background-color: white;
+	border-radius: 0.6em;
+}
+.button-cadastro-fisico
+{
+	margin-top: 10px;
+	align-content: center;
+	border: none;
+	background-color: white;
+	border-radius: 0.6em;
+}
 .textoblack
 {
 	font-size: 13pt;
@@ -319,29 +335,12 @@ input
 
 .navbar-expand-md .navbar-nav .nav-link { padding-left: 1rem; padding-right: 1rem; }
 
-
-.navbar-brand 
-{
-	width: 330px;
-	height: 39px;
-	background: url(../img/logo.png) left center no-repeat;
-	border: 0;
-	text-indent: -99999px;
-}
 .button-senha
 {
 
 	background: none;
 	border: none;
 	height: 33px;
-}
-.googleplay
-{
-	
-	width: 500px;
-	background: url(../img/icons/play.png) left center no-repeat;
-	border: 0;
-	text-indent: -99999px;
 }
 /***** Top content *****/
 
