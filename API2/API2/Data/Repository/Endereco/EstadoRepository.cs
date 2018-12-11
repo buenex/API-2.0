@@ -2,13 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
 
 
 //GET OK
@@ -16,8 +10,7 @@ namespace api.Data.Repository.PackgeEndereco
 {
     public class EstadoRepository : Db<Estado>, IRepository<Estado>
     {
-        //api/estado
-        [HttpGet]
+
         public new List<Estado> getAll()
         {
             StringBuilder sql = new StringBuilder();
@@ -106,18 +99,6 @@ namespace api.Data.Repository.PackgeEndereco
             return estado;
         }
 
-
-        #region "MÉTODOS NÃO IMPLEMENTADOS"
-
-        public new void delete(int id)
-        {
-            base.delete(id);
-            //StringBuilder sql = new StringBuilder();
-            //sql.Append("DELETE FROM Estado WHERE Id="+id);
-            //executeNonQuery(sql.ToString());
-            //throw new NotImplementedException();
-        }
-
         public new Estado insert(Estado entity)
         {
             StringBuilder sql = new StringBuilder();
@@ -143,10 +124,8 @@ namespace api.Data.Repository.PackgeEndereco
             sql.Append("SET Descricao = '"+ entity.descricao +"'");
             sql.Append("WHERE Id = "+ id);
             executeNonQuery(sql.ToString());
-            //throw new NotImplementedException();
+
             return entity;
         }
-        #endregion
-
     }
 }

@@ -2,19 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
 
 
 //GET, POST, PUT OK
 namespace api.Data.Repository.PackgeEndereco
 {
- 
+
     public class EnderecoRepository : Db<Endereco>, IRepository<Endereco>
     {
         

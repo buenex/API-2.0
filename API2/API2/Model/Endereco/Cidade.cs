@@ -1,15 +1,9 @@
-﻿using api.Model.PackgeEndereco;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace api.Model.PackgeEndereco
+﻿namespace api.Model.PackgeEndereco
 {
     public class Cidade
     {
         public int id { get; set; }
         public Estado estado { get; set; }
-        public String descricao { get; set; }
+        public string descricao { get; set; }
     }
 }

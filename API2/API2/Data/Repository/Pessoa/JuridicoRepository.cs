@@ -2,15 +2,11 @@
 using api.Data.Repository.PackgeEndereco;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Text;
 using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
+
 // GET, POST, PUT, DELETE
+
 namespace api.Data.Repository.PackgePessoa
 {
     public class JuridicoRepository : Db<Juridico>, IRepository<Juridico>
@@ -45,7 +41,6 @@ namespace api.Data.Repository.PackgePessoa
             }
 
             return listaJuridico;
-            //throw new NotImplementedException();
         }
 
         public Juridico getById(int id)
@@ -75,7 +70,6 @@ namespace api.Data.Repository.PackgePessoa
             }
 
             return Juridico;
-            //throw new NotImplementedException();
         }
    
         public Juridico insert(Juridico entity)
@@ -105,7 +99,6 @@ namespace api.Data.Repository.PackgePessoa
             executeNonQuery(sql.ToString());
 
             return entity;
-            //throw new NotImplementedException();
         }
         
         public new void update(int id, Juridico entity)
@@ -113,7 +106,6 @@ namespace api.Data.Repository.PackgePessoa
              StringBuilder sql = new StringBuilder();
             sql.Append("UPDATE Pessoa ");
             sql.Append("SET Nome = '"+entity.nome+"',");
-           // sql.Append("SET dataCadastro = '"+entity.dataCadastro.ToString("MM/dd/yyyy")+"',");
             sql.Append(" endereco = "+entity.endereco.Id);
             sql.Append(" WHERE Id = "+entity.Id);
             executeNonQuery(sql.ToString());
@@ -127,7 +119,6 @@ namespace api.Data.Repository.PackgePessoa
             sql.Append("    senha = '"+ entity.senha+"'");
             sql.Append(" WHERE Id = "+id);
             executeNonQuery(sql.ToString());
-            //throw new NotImplementedException();
         }
 
         public void delete(int id)

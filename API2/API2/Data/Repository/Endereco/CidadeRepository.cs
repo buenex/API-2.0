@@ -1,26 +1,15 @@
 ﻿using api.Model.PackgeEndereco;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using api.Data;
 using System.Text;
 using System.Data.SqlClient;
-using System.Data;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
 
 
 // GET OK
 namespace api.Data.Repository.PackgeEndereco
 {
-    [Route ("api/cidade") ]
     public class CidadeRepository : Db<Cidade>, IRepository<Cidade>
     {
-        //api/cidade
-        [HttpGet]
         public new List<Cidade> getAll()
         {
             StringBuilder sql = new StringBuilder();
@@ -60,7 +49,6 @@ namespace api.Data.Repository.PackgeEndereco
             return listaCidade;
         }
 
-         //api/cidade/1
         public new Cidade getById(int id)
         {
             StringBuilder sql = new StringBuilder();
@@ -131,16 +119,6 @@ namespace api.Data.Repository.PackgeEndereco
             return cidade;
         }
 
-        #region "MÉTODOS NÃO IMPLEMENTADOS"
-        public void delete(int id)
-        {
-            base.delete(id);
-            //StringBuilder sql = new StringBuilder();
-            //sql.Append("DELETE FROM Cidade WHERE Id="+id);
-            //executeNonQuery(sql.ToString());
-            //throw new NotImplementedException();
-        }
-
         public Cidade insert(Cidade entity)
         {
             StringBuilder sql = new StringBuilder();
@@ -152,7 +130,6 @@ namespace api.Data.Repository.PackgeEndereco
             sql.Append(")");
             executeNonQuery(sql.ToString());
             return entity;
-            //throw new NotImplementedException();
         }
 
         public Cidade update(int id, Cidade entity)
@@ -164,9 +141,7 @@ namespace api.Data.Repository.PackgeEndereco
             sql.Append("WHERE Id = "+id);
             executeNonQuery(sql.ToString());
             return entity;
-            //throw new NotImplementedException();
            
         }
-#endregion
     }
 }

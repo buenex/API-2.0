@@ -2,21 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
+
 //GET,PUT,POST OK
+
 namespace api.Data.Repository.PackgeProduto
 {
-    
+
     public class MateriaPrimaRepository : Db<MateriaPrima>, IRepository<MateriaPrima>
-    {
-        //alter
-       
+    {       
         public new List<MateriaPrima> getAll()
         {
             List<MateriaPrima>listMateriaPrima=new List<MateriaPrima>();

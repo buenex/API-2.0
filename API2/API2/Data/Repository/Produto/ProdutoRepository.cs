@@ -1,16 +1,11 @@
 ﻿using api.Model.PackgeProduto;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
+
 //GET,PUT,POST OK
+
 namespace api.Data.Repository.PackgeProduto
 {
     public class ProdutoRepository : Db<Produto>, IRepository<Produto>
@@ -44,7 +39,6 @@ namespace api.Data.Repository.PackgeProduto
                 sql.Append(" LEFT JOIN MateriaPrima MP ON I.MateriaPrima = MP.Id");
                 sql.Append(" WHERE I.Produto = " + produto.Id);
 
-                //SqlDataReader reader2 = execute(sql.ToString());
                 var listRows2 = executeDataTable(sql.ToString());
 
                 foreach (Dictionary<String, object> reader2 in listRows2)

@@ -2,19 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Net;
-using System.Net.Http.Headers;
-//Alter
+
+//GET,PUT,POST OK
 
 namespace api.Data.Repository.PackgeProduto
 
 {
-  
+
     public class IngredientesRepository : Db<Ingredientes>, IRepository<Ingredientes>
     {  
        
@@ -67,7 +62,6 @@ namespace api.Data.Repository.PackgeProduto
                 Ingrediente.valorEnergetico = double.Parse(reader["ValorEnergetico"].ToString());
 
                 ProdutoRepository prodRepo = new ProdutoRepository();
-                //Ingrediente.produto = prodRepo.getById(Convert.ToInt32(reader["Produto"]));
                 Ingrediente.produto.Id = Convert.ToInt32(reader["Produto"]);
 
                 MateriaPrimaRepository matRepo = new MateriaPrimaRepository();
