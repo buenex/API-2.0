@@ -52,18 +52,12 @@ body
     background-color: rgba(102, 102, 102, 0.815);;
 	display: none;
 }
-.googleplay
-{
 
-
-}
-.appstore
+.buttons-home
 {
+	margin-top: -150px;
+	margin-left: 500px;
 	
-}
-.link
-{
-	margin-top: 35%;
 }
 .button-cadastro
 {

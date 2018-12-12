@@ -9,7 +9,7 @@ function scrollbar(a)
   {
     $('html, body').animate({scrollTop:0}, 'slow'); 
   }
-  else if(a== "about")
+  else if(a == "about")
   {
     $('html, body').animate({scrollTop:2268}, 'slow');
   }
@@ -17,7 +17,7 @@ function scrollbar(a)
   {
     $('html, body').animate({scrollTop:3065}, 'slow');
   }
-  else if(a=="services")
+  else if(a == "services")
   {
     $('html, body').animate({scrollTop:600}, 'slow');
   }
