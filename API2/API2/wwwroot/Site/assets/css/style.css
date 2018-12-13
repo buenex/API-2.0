@@ -12,8 +12,11 @@ body
 /* Formularios de Cadastro,Login.*/
 .close
 {
-	opacity: 10;
-	margin:auto;
+	margin: auto;
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	
 }
 .button-logar
 {
