@@ -1,13 +1,17 @@
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1199px) 
+{
 
 	.services-box .services-box-icon { width: 70px; height: 60px; font-size: 32px; line-height: 60px; border-radius: 22px; }
 	
 	.about-us-box-text { padding-right: 0; }
 	
+	
+	
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+
 	
 	.navbar-expand-md .navbar-nav .nav-link { padding-left: 0.6rem; padding-right: 0.6rem; }
 	
