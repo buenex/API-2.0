@@ -38,4 +38,8 @@ function openclose(el)
       document.getElementById(el).style.display = 'none';
   }
 }
+function openclose(el)
+ {
+  if()
+}
 
