@@ -22,11 +22,29 @@ function scrollbar(a)
     $('html, body').animate({scrollTop:600}, 'slow');
   }
 }
-
+function logar(l,q,cf,cj)
+{
+  var logar= document.getElementById(l).style.display;
   
+  if(logar != "inline")
+  {
+    document.getElementById(l).style.display = 'inline';
+    document.getElementById(q).style.display = 'none';
+    document.getElementById(cf).style.display = 'none';
+    document.getElementById(cj).style.display = 'none';
+
+  }
+  else if(logar == "inline")
+  {
+    document.getElementById(l).style.display = 'none';
+  }
+
+}
+
 function openclose(el)
  {
   var display = document.getElementById(el).style.display;
+ 
 
   if(display != "inline")
   {
@@ -37,9 +55,5 @@ function openclose(el)
   
       document.getElementById(el).style.display = 'none';
   }
+  
 }
-function openclose(el)
- {
-  if()
-}
-
