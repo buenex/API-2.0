@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Text;
 
 
-//GET, POST, PUT OK
+//GET, POST, PUT  DELETE OK
 namespace api.Data.Repository.PackgeEndereco
 {
 
