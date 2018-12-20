@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+            $(document).ready(function(){
+              $("button").click(function(){
+                $.get("", function(data, status){
+                  alert("Data: " + data + "\nStatus: " + status);
+                });
+              });
+            });
+            $("button").click(function(){
+    $.post("demo_test_post.asp",
+    {
+    name: "Donald Duck",
+    city: "Duckburg"
+    },
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+        <button>Teste</button>
+        
+</body>
+</html>
