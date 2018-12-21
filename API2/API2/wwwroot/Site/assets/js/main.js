@@ -22,6 +22,25 @@ function scrollbar(a)
     $('html, body').animate({scrollTop:600}, 'slow');
   }
 }
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+function logado(op,l,close)
+{
+  
+  
+  document.getElementById(l).style.display = 'none';
+  document.getElementById(op).style.display = 'inline';
+}
 function logar(l,q,cf,cj)
 {
   var logar= document.getElementById(l).style.display;
@@ -38,7 +57,6 @@ function logar(l,q,cf,cj)
   {
     document.getElementById(l).style.display = 'none';
   }
-
 }
 
 function openclose(el)
