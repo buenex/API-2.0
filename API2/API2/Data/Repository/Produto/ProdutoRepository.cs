@@ -148,8 +148,10 @@ namespace api.Data.Repository.PackgeProduto
                 while (reader2.Read())
                 {
                     Ingredientes ingrediente = new Ingredientes();
+                    Produto prod = new Produto();
 
                     ingrediente.Id = Convert.ToInt32(reader2["Id"].ToString());
+                    ingrediente.produto = prod;
                     ingrediente.produto.Id = Convert.ToInt32(reader2["Produto"].ToString());
                     ingrediente.valorDiario = double.Parse((reader2["valorDiario"]).ToString());
                     ingrediente.valorEnergetico = double.Parse((reader2["valorEnergetico"]).ToString());

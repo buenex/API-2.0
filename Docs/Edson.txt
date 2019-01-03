@@ -1,0 +1,73 @@
+Juridico
+
+public string razaoSocial { get; set; }
+       
+public string cnpj { get; set; }
+        
+public string email { get; set; }
+        
+public string senha { get; set; }
+        
+public GrupoUsuario grupo{get;set;}
+
+Produto
+
+public int Id { get; set; }
+        
+public string descricao { get; set; }
+        
+public double valorVenda { get; set; }
+        
+public string preparo { get; set; }
+        
+public string conservacao { get; set; }
+        
+public string codigoBarra { get; set; }
+        
+public List<Ingredientes> ingredientes { get; set; }
+
+Ingrediente
+
+public int Id { get; set; }
+        
+public Produto produto { get; set; }
+        
+public MateriaPrima materiaPrima { get; set; }
+        
+public double valorEnergetico { get; set; }
+        
+public double valorDiario { get; set; }
+
+Materia Prima
+
+public int Id { get; set; }
+        
+public string descricao { get; set; }
+        
+public bool causaAlergia { get; set; }
+
+ArtigoUsuario
+
+public Artigo artigo{get;set;}
+        
+public DateTime dataPublicacao{get;set;}
+        
+public int Id{get;set;}
+
+Artigo
+
+public string titulo{get;set;}
+        
+public int Id{get;set;}
+        
+public Categoria categoria{get;set;}
+        
+public string texto{get;set;}
+
+Categoria
+
+public int id{get;set;}
+        
+public string descricao{get;set;}
+
+
