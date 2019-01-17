@@ -34,5 +34,12 @@ namespace api.Controllers.PackgeEndereco
             repo = new CidadeRepository();
             return repo.getByName(name);
         }
+
+        [HttpGet("estado/{id}")]
+        public List<Cidade> GetcidadeByEstado(int id)
+        {
+            repo = new CidadeRepository();
+            return repo.getCidadeByEstado(id);
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace api.Data.PackgeRepository
         {
             List<Pais> listaPais = new List<Pais>();
             sql.Append("SELECT Id,descricao ");
-            sql.Append("FROM Pais");
+            sql.Append("FROM Pais ORDER BY Id ASC");
 
             SqlDataReader reader = execute(sql.ToString());
             while (reader.Read())

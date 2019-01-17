@@ -143,5 +143,44 @@ namespace api.Data.Repository.PackgeEndereco
             return entity;
            
         }
+
+        public new List<Cidade> getCidadeByEstado(int id)
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Cidade> listaCidade = new List<Cidade>();
+
+            sql.Append("SELECT C.Id, C.Estado, E.Descricao as DescEstado, E.Sigla, ");
+            sql.Append("P.Id as PaisId, P.Descricao as DescPais, C.Descricao");
+            sql.Append(" FROM Cidade C");
+            sql.Append(" INNER JOIN Estado E ON C.Estado = E.Id");
+            sql.Append(" INNER JOIN Pais P ON E.Pais = P.Id WHERE C.Estado = " + id);
+
+            SqlDataReader reader = execute(sql.ToString());
+
+            while  (reader.Read())
+            {
+                Cidade cidade = new Cidade();
+
+                cidade.id = Convert.ToInt32(reader["id"]);
+                cidade.descricao = reader["Descricao"].ToString();
+
+                Pais pais = new Pais();
+                pais.Id = Convert.ToInt32(reader["PaisId"]);
+                pais.descricao = reader["DescPais"].ToString();
+                
+                Estado estado = new Estado();
+                estado.Id = Convert.ToInt32(reader["Estado"]);
+                estado.descricao = reader["DescEstado"].ToString();
+                estado.sigla = reader["Sigla"].ToString();
+
+                estado.pais = pais;
+                
+                cidade.estado = estado;
+
+                listaCidade.Add(cidade);
+            }
+
+            return listaCidade;
+        }
     }
 }

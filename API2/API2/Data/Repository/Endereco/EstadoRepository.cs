@@ -127,5 +127,34 @@ namespace api.Data.Repository.PackgeEndereco
 
             return entity;
         }
+        public new List<Estado> getEstadoByPais(int id){
+             StringBuilder sql = new StringBuilder();
+            List<Estado> estados = new List<Estado>();
+
+            sql.Append("SELECT E.Id, E.Pais, E.Descricao, E.Sigla,");
+            sql.Append(" P.Id as PaisId, P.Descricao as PDescricao");
+            sql.Append(" FROM Estado E");
+            sql.Append(" INNER JOIN Pais P");
+            sql.Append(" ON E.Pais = P.Id");
+            sql.Append(" WHERE E.Pais = "+id);
+
+            SqlDataReader reader = base.execute(sql.ToString());
+
+            while (reader.Read())
+            {
+                Estado estado = new Estado();
+                estado.Id = Convert.ToInt32(reader["Id"]);
+                estado.descricao = reader["Descricao"].ToString();
+                estado.sigla = reader["Sigla"].ToString();
+
+                Pais pais = new Pais();
+                pais.Id = Convert.ToInt32(reader["PaisId"]);
+                pais.descricao = reader["PDescricao"].ToString();
+                estado.pais = pais;
+                estados.Add(estado);
+            }
+
+            return estados;
+        }
     }
 }

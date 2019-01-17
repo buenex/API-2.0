@@ -36,5 +36,13 @@ namespace api.Controllers.PackgeEndereco
             return repo.getByName(name);
         }
 
+         [HttpGet("pais/{pais}")]
+        public List<Estado> GetEstadoByPais(int pais)
+        {
+            repo = new EstadoRepository();
+
+            return repo.getEstadoByPais(pais);
+        }
+
     }
 }
