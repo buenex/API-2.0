@@ -1,0 +1,47 @@
+<p><h1>
+  Cadastro Jurídico
+</h1>
+<br><br>
+<div class='formJuridico'>
+  <p>
+    Nome: <input type="text" [(ngModel)]="juridico.pessoa.nome"/>
+  </p>
+  <p>
+    Pais: <select id= 'Pais'  >
+      <option *ngFor="let p of paises" [value]="p.id" >{{p.descricao}}</option>
+
+    </select>
+
+    o pais atual é: {{paisAtual.id}}
+  </p>
+  <p>
+      Estado: <select class = 'Estado' [(ngModel)] = "estAtual" (click)="getPaisByName(paisAtual.descricao)">
+        <option *ngFor="let e of estados" >{{e.descricao}}</option>
+      </select>
+
+    </p>
+    <p>
+        Cidade: <select class = 'Cidade' [(ngModel)] = "cidAtual">
+          <option *ngFor="let c of cidades" >{{c.descricao}}</option>
+        </select>
+
+      </p>
+  <p>
+    Razao Social: <input type="text" [(ngModel)]="juridico.razaoSocial"/>
+  </p>
+  <p>
+    CNPJ: <input type='number' [(ngModel)]="juridico.cnpj"/>
+  </p>
+  <p>
+    email: <input type='email' [(ngModel)]="juridico.email"/>
+  </p>
+  <p>
+    senha: <input type='password' [(ngModel)]="juridico.senha"/>
+  </p>
+  <p>
+    confirmar senha: <input type='password' [(ngModel)]="confirmaSenha"/>
+  </p>
+
+  <button (click)="submit()" class="btnSubmit">Enviar Dados</button>
+  <button (click)="clear()" class="btnClear">Apagar campos</button>
+</div>
